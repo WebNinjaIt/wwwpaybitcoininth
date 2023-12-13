@@ -1,0 +1,5 @@
+Sitemap: https://paybitcoin.in.th/sitemap.xml
+Sitemap: https://paybitcoin.in.th/news-sitemap.xml
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
