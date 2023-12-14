@@ -1,0 +1,36 @@
+{
+    "seo.paybitcoin.in.th": {
+        "siteId": "QYPUvYSqTKhJlaquAElzgtwmimEyRiqL",
+        "siteSecret": "ilDuY5RrR0db7e5RDYcvT1Q3RStAplIHnGXJWIkrxLAG8oeuqrqz9jZKigq4lC0L",
+        "blogId": 1,
+        "compression": true,
+        "webhookToken": "9b4a0b6a5eb7d53f61fd2712dc4e3699",
+        "home_url": "https:\/\/seo.paybitcoin.in.th",
+        "admin_url": "https:\/\/seo.paybitcoin.in.th\/wp-admin\/",
+        "hosting": "unknown",
+        "alwaysBuffer": true,
+        "isEzoicActive": false,
+        "isLateIntegrationInitRequired": false,
+        "isDlmActive": false,
+        "dlm_downloading_url": null,
+        "dlm_download_endpoint": null,
+        "pluginVersion": "1.5.6"
+    },
+    "paybitcoin.in.th": {
+        "siteId": "QYPUvYSqTKhJlaquAElzgtwmimEyRiqL",
+        "siteSecret": "ilDuY5RrR0db7e5RDYcvT1Q3RStAplIHnGXJWIkrxLAG8oeuqrqz9jZKigq4lC0L",
+        "blogId": 1,
+        "compression": true,
+        "webhookToken": "9b4a0b6a5eb7d53f61fd2712dc4e3699",
+        "home_url": "https:\/\/paybitcoin.in.th",
+        "admin_url": "https:\/\/paybitcoin.in.th\/wp-admin\/",
+        "hosting": "unknown",
+        "alwaysBuffer": true,
+        "isEzoicActive": false,
+        "isLateIntegrationInitRequired": false,
+        "isDlmActive": false,
+        "dlm_downloading_url": null,
+        "dlm_download_endpoint": null,
+        "pluginVersion": "1.5.7"
+    }
+}
