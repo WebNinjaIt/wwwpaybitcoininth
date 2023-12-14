@@ -24,19 +24,35 @@ define( 'WPCACHEHOME', '/home/wwwpaybitcoininth/site/wp-content/plugins/wp-super
  *
  * @package WordPress
  */
-// ** MySQL settings - You can get this info from your web host ** //
+// ** MySQL settings - You can get thi
+$connectstr_dbhost = getenv('DATABASE_HOST');
+$connectstr_dbname = getenv('DATABASE_NAME');
+$connectstr_dbusername = getenv('DATABASE_USERNAME');
+$connectstr_dbpassword = getenv('DATABASE_PASSWORD');
+
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wwwpaybitcoininthdb' );
+define('DB_NAME', $connectstr_dbname);
+
 /** MySQL database username */
-define( 'DB_USER', 'wwwpaybitcoininthusr' );
+define('DB_USER', $connectstr_dbusername);
+
 /** MySQL database password */
-define( 'DB_PASSWORD', '89080f43-2c20-459d-b6d6-ea92ad115d1a' );
+define('DB_PASSWORD',$connectstr_dbpassword);
+
 /** MySQL hostname */
-define( 'DB_HOST', 'localhost:6306' );
+define('DB_HOST', $connectstr_dbhost);
+
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', 'utf8_unicode_520_ci' );
+
+/** Enabling support for connecting external MYSQL over SSL*/
+$mysql_sslconnect = (getenv('DB_SSL_CONNECTION')) ? getenv('DB_SSL_CONNECTION') : 'true';
+if (strtolower($mysql_sslconnect) != 'false' && !is_numeric(strpos($connectstr_dbhost, "127.0.0.1")) && !is_numeric(strpos(strtolower($connectstr_dbhost), "localhost"))) {
+        define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+}
+
 /**
  * Authentication Unique Keys and Salts.
  *
@@ -62,10 +78,29 @@ define( 'WP_CACHE_KEY_SALT', 'Q:38-rsa!euiBIL-&]84]=kYwsIbV~3w,DpDUPA2<+)f*X#e)!
  * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix = 'wp_';
-/* That's all, stop editing! Happy publishing. */
+
+define( 'WP_DEBUG', false );
+
+/* That's all, stop editing! Happy blogging. */
+/**https://developer.wordpress.org/reference/functions/is_ssl/ */
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+        $_SERVER['HTTPS'] = 'on';
+
+$http_protocol='http://';
+if (!preg_match("/^localhost(:[0-9])*/", $_SERVER['HTTP_HOST']) && !preg_match("/^127\.0\.0\.1(:[0-9])*/", $_SERVER['HTTP_HOST'])) {
+        $http_protocol='https://';
+}
+
+//Relative URLs for swapping across app service deployment slots
+define('WP_HOME', $http_protocol . $_SERVER['HTTP_HOST']);
+define('WP_SITEURL', $http_protocol . $_SERVER['HTTP_HOST']);
+define('WP_CONTENT_URL', '/wp-content');
+define('DOMAIN_CURRENT_SITE', $_SERVER['HTTP_HOST']);
+
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+        define( 'ABSPATH', __DIR__ . '/' );
 }
+
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
