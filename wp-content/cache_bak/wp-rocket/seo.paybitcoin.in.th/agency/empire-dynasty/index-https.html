@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	<link rel="profile" href="//gmpg.org/xfn/11">
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<meta property="og:title" content="The Empire Dynasty Co., Ltd." /><meta property="og:image" content="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/empire_logo.jpg" />
+	<!-- This site is optimized with the Yoast SEO Premium plugin v16.7 (Yoast SEO v16.8) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>The Empire Dynasty Co., Ltd. - Start living with Crypto!</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Nunito%3A300%2C400%2C600%2C700%2C800%2C900%7CMonda%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=latin%2Clatin-ext&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito%3A300%2C400%2C600%2C700%2C800%2C900%7CMonda%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=latin%2Clatin-ext&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito%3A300%2C400%2C600%2C700%2C800%2C900%7CMonda%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=latin%2Clatin-ext&#038;display=swap" /></noscript><link rel="stylesheet" href="https://seo.paybitcoin.in.th/wp-content/cache/min/1/0730b881c6a0307dc40f1faca4da1bd1.css" media="all" data-minify="1" />
+	<link rel="canonical" href="https://seo.paybitcoin.in.th/agency/empire-dynasty/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="The Empire Dynasty Co., Ltd." />
+	<meta property="og:description" content="The Empire Dynasty believe in the power of good design. They commit to improve quality of life by creating affordable living space incorporating technology, economy and design. They build not only home but valuable assets. They endeavor to keep their  promise to make sure every detail is bringing us to be a leading and innovative [&hellip;]" />
+	<meta property="og:url" content="https://seo.paybitcoin.in.th/agency/empire-dynasty/" />
+	<meta property="og:site_name" content="Start living with Crypto!" />
+	<meta property="article:modified_time" content="2021-02-11T21:50:22+00:00" />
+	<meta property="og:image" content="https://paybitcoin.in.th/wp-content/uploads/2021/02/empire_logo.jpg" />
+	<meta property="og:image:width" content="300" />
+	<meta property="og:image:height" content="269" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="1 minute" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://paybitcoin.in.th/#website","url":"https://paybitcoin.in.th/","name":"Start living with Crypto!","description":"Use Bitcoin in Thailand! We convert and the seller gets Thai Baht for goods and services.","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://paybitcoin.in.th/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://seo.paybitcoin.in.th/agency/empire-dynasty/#primaryimage","inLanguage":"en-US","url":"https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/empire_logo.jpg","contentUrl":"https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/empire_logo.jpg","width":300,"height":269,"caption":"PayBitcoin - Buy real estate property with bitcoin POS in Thailand. We provide the best services for pay with bitcoin. Contact us now - +66. 38111801"},{"@type":"WebPage","@id":"https://seo.paybitcoin.in.th/agency/empire-dynasty/#webpage","url":"https://seo.paybitcoin.in.th/agency/empire-dynasty/","name":"The Empire Dynasty Co., Ltd. - Start living with Crypto!","isPartOf":{"@id":"https://paybitcoin.in.th/#website"},"primaryImageOfPage":{"@id":"https://seo.paybitcoin.in.th/agency/empire-dynasty/#primaryimage"},"datePublished":"2021-02-10T18:45:04+00:00","dateModified":"2021-02-11T21:50:22+00:00","breadcrumb":{"@id":"https://seo.paybitcoin.in.th/agency/empire-dynasty/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://seo.paybitcoin.in.th/agency/empire-dynasty/"]}]},{"@type":"BreadcrumbList","@id":"https://seo.paybitcoin.in.th/agency/empire-dynasty/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://seo.paybitcoin.in.th/"},{"@type":"ListItem","position":2,"name":"Agencies","item":"https://seo.paybitcoin.in.th/agency/"},{"@type":"ListItem","position":3,"name":"The Empire Dynasty Co., Ltd."}]}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Start living with Crypto! &raquo; Feed" href="https://seo.paybitcoin.in.th/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Start living with Crypto! &raquo; Comments Feed" href="https://seo.paybitcoin.in.th/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Start living with Crypto! &raquo; The Empire Dynasty Co., Ltd. Comments Feed" href="https://seo.paybitcoin.in.th/agency/empire-dynasty/feed/" />
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+<style id='wp-block-library-theme-inline-css' type='text/css'>
+#start-resizable-editor-section{display:none}.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-code{font-family:Menlo,Consolas,monaco,monospace;color:#1e1e1e;padding:.8em 1em;border:1px solid #ddd;border-radius:4px}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-pullquote{border-top:4px solid;border-bottom:4px solid;margin-bottom:1.75em;color:currentColor}.wp-block-pullquote__citation,.wp-block-pullquote cite,.wp-block-pullquote footer{color:currentColor;text-transform:uppercase;font-size:.8125em;font-style:normal}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;position:relative;font-style:normal}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-group.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto;opacity:.4}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid;word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-template-part.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}#end-resizable-editor-section{display:none}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id='elementor-frontend-inline-css' type='text/css'>
+@font-face{font-family:eicons;src:url(https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0);src:url(https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0#iefix) format("embedded-opentype"),url(https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2?5.10.0) format("woff2"),url(https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff?5.10.0) format("woff"),url(https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf?5.10.0) format("truetype"),url(https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.svg?5.10.0#eicon) format("svg");font-weight:400;font-style:normal}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;cursor:pointer;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:72px;width:72px;left:50%;top:50%;margin-left:-36px;margin-top:-36px;position:absolute;background:url(https://seo.paybitcoin.in.th/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat;cursor:pointer}.wp-has-aspect-ratio .rll-youtube-player{position:absolute;padding-bottom:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}
+</style>
+
+
+
+
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/product_specification_for_elementor/js/spec-table.js?ver=1628910928' id='temegum-spec-table-js'></script>
+<script data-minify="1" type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/everest-gallery/js/jquery.bxslider.js?ver=1628910928' id='eg-bxslider-script-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/everest-gallery/js/imagesloaded.min.js?ver=1.0.5' id='eg-imageloaded-script-js'></script>
+<script data-minify="1" type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/everest-gallery/js/jquery.prettyPhoto.js?ver=1628910928' id='eg-prettyphoto-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/everest-gallery/js/jquery.colorbox-min.js?ver=1.0.5' id='eg-colorbox-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/everest-gallery/js/isotope.js?ver=1628910928' id='eg-isotope-script-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/everest-gallery/js/jquery.magnific-popup.min.js?ver=1.0.5' id='eg-magnific-popup-js'></script>
+<script data-minify="1" type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/everest-gallery/js/jquery.everest-lightbox.js?ver=1628910928' id='eg-everest-lightbox-js'></script>
+<script type='text/javascript' id='eg-frontend-script-js-extra'>
+/* <![CDATA[ */
+var eg_frontend_js_object = {"ajax_url":"https:\/\/seo.paybitcoin.in.th\/wp-admin\/admin-ajax.php","strings":{"video_missing":"Video URL missing"},"ajax_nonce":"a18502608a","plugin_url":"https:\/\/seo.paybitcoin.in.th\/wp-content\/plugins\/everest-gallery\/"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/everest-gallery/js/eg-frontend.js?ver=1628910928' id='eg-frontend-script-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/wp-realestate/assets/js/chart.min.js?ver=1.0' id='chart-js'></script>
+<script type='text/javascript' id='cookie-notice-front-js-extra'>
+/* <![CDATA[ */
+var cnArgs = {"ajaxUrl":"https:\/\/seo.paybitcoin.in.th\/wp-admin\/admin-ajax.php","nonce":"f5d1b05fd4","hideEffect":"fade","position":"bottom","onScroll":"0","onScrollOffset":"100","onClick":"0","cookieName":"cookie_notice_accepted","cookieTime":"2592000","cookieTimeRejected":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"0","cache":"1","refuse":"0","revokeCookies":"0","revokeCookiesOpt":"automatic","secure":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" async data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/cookie-notice/includes/../js/front.min.js?ver=2.1.0' id='cookie-notice-front-js'></script>
+<link rel="https://api.w.org/" href="https://seo.paybitcoin.in.th/wp-json/" /><link rel="alternate" type="application/json" href="https://seo.paybitcoin.in.th/wp-json/wp/v2/agency/3898" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://seo.paybitcoin.in.th/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://seo.paybitcoin.in.th/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.8" />
+<link rel='shortlink' href='https://seo.paybitcoin.in.th/?p=3898' />
+<link rel="alternate" type="application/json+oembed" href="https://seo.paybitcoin.in.th/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fseo.paybitcoin.in.th%2Fagency%2Fempire-dynasty%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://seo.paybitcoin.in.th/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fseo.paybitcoin.in.th%2Fagency%2Fempire-dynasty%2F&#038;format=xml" />
+<meta name="framework" content="Redux 4.1.24" /><script type="rocketlazyloadscript" data-minify="1" id='pixel-script-poptin' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/pixel.js?ver=1628910928' async='true'></script> <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><meta name="generator" content="Powered by Slider Revolution 6.5.0 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<link rel="icon" href="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/lazy-load-wanda.exchange-logo-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/lazy-load-wanda.exchange-logo.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/lazy-load-wanda.exchange-logo.png" />
+<meta name="msapplication-TileImage" content="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/lazy-load-wanda.exchange-logo.png" />
+<script type="text/javascript">function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {				 
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
+				try {								
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
+					if(e.layout==="fullscreen" || e.l==="fullscreen") 						
+						newh = Math.max(e.mh,window.RSIH);					
+					else{					
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,						
+							sl;					
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];									
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}				
+					if(window.rs_init_css===undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));					
+					document.getElementById(e.c).height = newh+"px";
+					window.rs_init_css.innerHTML += "#"+e.c+"_wrapper { height: "+newh+"px }";				
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}					   
+			//});
+		  };</script>
+		<style type="text/css" id="wp-custom-css">
+			@media (max-width: 1199px) {
+	  [class*="layout-type-half-map"] .properties-ordering-wrapper,
+  [class*="layout-type-half-map"] .agencies-ordering-wrapper,
+  [class*="layout-type-half-map"] .agents-ordering-wrapper {
+    display: block;
+  }
+  [class*="layout-type-half-map"] .properties-ordering-wrapper .saved-search-form-btn,
+  [class*="layout-type-half-map"] .properties-ordering-wrapper .properties-display-mode-wrapper,
+  [class*="layout-type-half-map"] .agencies-ordering-wrapper .saved-search-form-btn,
+  [class*="layout-type-half-map"] .agencies-ordering-wrapper .properties-display-mode-wrapper,
+  [class*="layout-type-half-map"] .agents-ordering-wrapper .saved-search-form-btn,
+  [class*="layout-type-half-map"] .agents-ordering-wrapper .properties-display-mode-wrapper {
+    margin-top: 10px !important;
+  }
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<script type="rocketlazyloadscript" src="https://kit.fontawesome.com/f6c532a9aa.js" crossorigin="anonymous"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=G-448YSJDN22"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-448YSJDN22');
+</script>
+</head>
+<body class="agency-template-default single single-agency postid-3898 wp-embed-responsive image-lazy-loading body-footer-mobile cookies-not-set elementor-default elementor-kit-13">
+
+<div id="wrapper-container" class="wrapper-container">
+    
+	<nav id="navbar-offcanvas" class="navbar hidden-lg" role="navigation">
+    <ul>
+                
+        
+    </ul>
+	
+	
+	
+	
+	
+    </nav>	<div id="apus-header-mobile" class="header-mobile hidden-lg clearfix" style="padding:5px">    
+    <div class="container">
+        <div class="row">
+            <div class="flex-middle">
+                <div class="col-xs-6 text-left">
+                                                                <div class="logo">
+                            <a href="https://seo.paybitcoin.in.th/">
+                                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" style="max-height:60px;" alt="Start living with Crypto!" data-lazy-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo-wanda.exchange-01.svg"><noscript><img src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo-wanda.exchange-01.svg" style="max-height:60px;" alt="Start living with Crypto!"></noscript>
+                            </a>
+                        </div>
+                                    </div>
+				
+                <div class="col-xs-2">
+                                        </div>
+				
+				
+				
+				
+				<div class="col-xs-2 text-right">
+				<div class="elementor-widget-container">
+			        <div class="widget-currencies ">
+            <div class="currencies-wrapper">
+    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" role="button" aria-haspopup="true" data-delay="0" href="#">
+    <span style="font-size: 13px; color: #F88304;">
+ <i class="fas fa-coins"></i></span><i class="fa fa-caret-down"></i>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" style="min-width: 115px;">
+    	<form class="properties-currencies" method="get" action="https://paybitcoin.in.th/properties-in-thailand/">
+			<ul class="currencies">
+									<li class="">
+						<label for="input-currency-THB">
+							<input id="input-currency-THB" type="radio" name="currency" value="THB" class="hidden">
+							฿ THB	</label>
+					</li>
+									
+										<li class="">
+						<label for="input-currency-BTC">
+							<input id="input-currency-BTC" type="radio" name="currency" value="BTC" class="hidden">
+							₿ BTC 				</label>
+					</li>
+									
+										<li class="">
+						<label for="input-currency-ETH">
+							<input id="input-currency-ETH" type="radio" name="currency" value="ETH" class="hidden">
+							Ξ ETH 				</label>
+					</li>
+									
+										<li class="">
+						<label for="input-currency-USDT">
+							<input id="input-currency-USDT" type="radio" name="currency" value="USDT" class="hidden">
+							₮ USDT				</label>
+					</li>
+								</ul>
+
+					</form>
+    </div>
+</div>        </div>
+        		</div>
+				</div>
+				
+				
+				
+				
+				
+                <div class="col-xs-2 text-right">
+                    
+                        <a href="#" class="btn btn-showmenu btn-theme" id="mobilemenu">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                   	
+					
+                </div>
+				
+				
+				
+				
+            </div>
+        </div>
+    </div>
+</div>
+	<div id="apus-header" class="apus-header no_keep_header visible-lg header-11-4736">		<div data-elementor-type="wp-post" data-elementor-id="4736" class="elementor elementor-4736" data-elementor-settings="[]">
+							<div class="elementor-section-wrap">
+							<section class="elementor-section elementor-top-section elementor-element elementor-element-59a6830f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="59a6830f" data-element_type="section" id="header_pop" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;tmea_shape_divider_top&quot;:&quot;none&quot;,&quot;tmea_shape_divider_bottom&quot;:&quot;none&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-366cb075" data-id="366cb075" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+								<section class="elementor-section elementor-inner-section elementor-element elementor-element-4ed85a35 elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4ed85a35" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;tmea_shape_divider_top&quot;:&quot;none&quot;,&quot;tmea_shape_divider_bottom&quot;:&quot;none&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-721a167b" data-id="721a167b" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6333c549 elementor-icon-list--layout-inline elementor-align-left elementor-mobile-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6333c549" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-phone"></i>						</span>
+										<span class="elementor-icon-list-text">+66. 38111801</span>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-envelope"></i>						</span>
+										<span class="elementor-icon-list-text">info@paybitcoin.in.th</span>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-bitcoin"></i>						</span>
+										<span class="elementor-icon-list-text">Start Living with Crypto in Thailand! Legal and Safe!</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-43e7e4e6" data-id="43e7e4e6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-641ad6e elementor-icon-list--layout-inline elementor-align-center elementor-tablet-align-right elementor-mobile-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="641ad6e" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+					<a href="https://www.linkedin.com/company/paybitcoin-in-thailand">						<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-linkedin-in"></i>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+					<a href="https://twitter.com/PaybitcoinT">						<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-twitter"></i>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+					<a href="http://facebook.com/paybitcoin.thailand">						<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-facebook-f"></i>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+					<a href="https://www.youtube.com/channel/UCKhfjk-7X1wcLy5Txde4Siw">						<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-youtube"></i>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7cb1180f" data-id="7cb1180f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-982efdc elementor-widget elementor-widget-apus_element_realestate_currencies" data-id="982efdc" data-element_type="widget" data-widget_type="apus_element_realestate_currencies.default">
+				<div class="elementor-widget-container">
+			        <div class="widget-currencies ">
+                    </div>
+        		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-a73ca96 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a73ca96" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;tmea_shape_divider_top&quot;:&quot;none&quot;,&quot;tmea_shape_divider_bottom&quot;:&quot;none&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-57626fe1" data-id="57626fe1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-10c407b9 elementor-widget elementor-widget-image" data-id="10c407b9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://seo.paybitcoin.in.th">
+							<img width="1" height="1" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E" class="attachment-large size-large" alt="Find Your Dream Home and Pay with Bitcoin!" data-lazy-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo-wanda.exchange-01.svg" /><noscript><img width="1" height="1" src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo-wanda.exchange-01.svg" class="attachment-large size-large" alt="Find Your Dream Home and Pay with Bitcoin!" /></noscript>								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-f07c35a" data-id="f07c35a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2e42c34a elementor-nav-menu__align-left elementor-nav-menu--stretch elementor-nav-menu--dropdown-mobile elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="2e42c34a" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;fas fa-caret-down&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav migration_allowed="1" migrated="0" role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none"><ul id="menu-1-2e42c34a" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7731"><a href="https://seo.paybitcoin.in.th/convert-bitcoin-in-thailand/" class="elementor-item">Home</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6753"><a href="#" class="elementor-item elementor-item-anchor">About</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3724"><a href="https://seo.paybitcoin.in.th/about-our-company-projects-team/" class="elementor-sub-item">Who We Are?</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10898"><a href="#" class="elementor-sub-item elementor-item-anchor">Our Media Hub</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11042"><a href="https://seo.paybitcoin.in.th/online-press-hot-topics" class="elementor-sub-item">Hot! &#8211; Check Out Our Articles!</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11082"><a href="https://seo.paybitcoin.in.th/video-library-wanda-exchange/" class="elementor-sub-item">Video Library</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9234"><a href="#" class="elementor-sub-item elementor-item-anchor">Career – Join our Team!</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9235"><a href="https://seo.paybitcoin.in.th/job-wanda-exchange-data-analyst/" class="elementor-sub-item">Data Analyst</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9245"><a href="https://seo.paybitcoin.in.th/job-wanda-exchange-it-developer/" class="elementor-sub-item">IT Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9254"><a href="https://seo.paybitcoin.in.th/web-developer-join-our-team/" class="elementor-sub-item">Web Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9505"><a href="https://seo.paybitcoin.in.th/graphic-web-developer-join-our-team/" class="elementor-sub-item">Web Designer / Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9236"><a href="https://seo.paybitcoin.in.th/accountant-join-our-team/" class="elementor-sub-item">Accountant</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2498"><a href="https://seo.paybitcoin.in.th/our-partners/" class="elementor-sub-item">Our Partners</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7811"><a href="https://seo.paybitcoin.in.th/partnership/" class="elementor-sub-item">Cooperation</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-4917"><a href="https://seo.paybitcoin.in.th/" class="elementor-item">Real Estate</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-13334"><a href="https://seo.paybitcoin.in.th/" class="elementor-sub-item">Latest Deals</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15684"><a href="https://seo.paybitcoin.in.th/villas-for-sale/" class="elementor-sub-item">Villas / Houses</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15717"><a href="https://seo.paybitcoin.in.th/elementor-15688/" class="elementor-sub-item">Comdominium Projects</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7736"><a href="#" class="elementor-item elementor-item-anchor">Services</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10351"><a href="https://seo.paybitcoin.in.th/thailand-visa-support/" class="elementor-sub-item">Thailand Visa Support</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6011"><a href="https://seo.paybitcoin.in.th/private-jets-helicopters-booking/" class="elementor-sub-item">Jet Booking</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6945"><a href="#" class="elementor-sub-item elementor-item-anchor">Health Care</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9732"><a href="#" class="elementor-sub-item elementor-item-anchor">Dental</a>
+		<ul class="sub-menu elementor-nav-menu--dropdown">
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9731"><a href="https://seo.paybitcoin.in.th/german-dental-clinic/" class="elementor-sub-item">German Dental Clinic</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6946"><a href="#" class="elementor-sub-item elementor-item-anchor">Beauty Care</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7739"><a href="https://seo.paybitcoin.in.th/cash-withdrawal-bitcoin-exchange-pos/" class="elementor-item">Crypto Exchanges</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14247"><a href="https://seo.paybitcoin.in.th/crypto-exchange/" class="elementor-sub-item">Crypto Calculator</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6170"><a href="https://seo.paybitcoin.in.th/vip-concierge-service-in-thailand/" class="elementor-item">Vip Concierge</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9786"><a href="#" class="elementor-sub-item elementor-item-anchor">Night Life</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9785"><a href="https://seo.paybitcoin.in.th/empire-luxury-club/" class="elementor-sub-item">Empire Club</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4798"><a href="https://seo.paybitcoin.in.th/bitcoin-luxlife-thailand-property-tourism-latest-news-rss/" class="elementor-item">News</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11048"><a href="https://seo.paybitcoin.in.th/online-press-hot-topics" class="elementor-sub-item">Check Out Our Articles!</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4841"><a href="https://seo.paybitcoin.in.th/bitcoin-news-rss/" class="elementor-sub-item">Bitcoin</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4840"><a href="https://seo.paybitcoin.in.th/property-thailand-news-rss/" class="elementor-sub-item">Real Estate</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4839"><a href="https://seo.paybitcoin.in.th/tourism-thailand-news-rss/" class="elementor-sub-item">Thai Tourism</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4838"><a href="https://seo.paybitcoin.in.th/luxury-life-thailand-news-rss/" class="elementor-sub-item">Lux Life</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5668"><a href="https://seo.paybitcoin.in.th/f-a-q/" class="elementor-item">F.A.Q.</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14798"><a href="http://cn.paybitcoin.in.th" class="elementor-item">/   中文 / CHINESE</a></li>
+</ul></nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i class="eicon-menu-bar" aria-hidden="true" role="presentation"></i>
+			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true"><ul id="menu-2-2e42c34a" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7731"><a href="https://seo.paybitcoin.in.th/convert-bitcoin-in-thailand/" class="elementor-item" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6753"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">About</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3724"><a href="https://seo.paybitcoin.in.th/about-our-company-projects-team/" class="elementor-sub-item" tabindex="-1">Who We Are?</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10898"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Our Media Hub</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11042"><a href="https://seo.paybitcoin.in.th/online-press-hot-topics" class="elementor-sub-item" tabindex="-1">Hot! &#8211; Check Out Our Articles!</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11082"><a href="https://seo.paybitcoin.in.th/video-library-wanda-exchange/" class="elementor-sub-item" tabindex="-1">Video Library</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9234"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Career – Join our Team!</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9235"><a href="https://seo.paybitcoin.in.th/job-wanda-exchange-data-analyst/" class="elementor-sub-item" tabindex="-1">Data Analyst</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9245"><a href="https://seo.paybitcoin.in.th/job-wanda-exchange-it-developer/" class="elementor-sub-item" tabindex="-1">IT Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9254"><a href="https://seo.paybitcoin.in.th/web-developer-join-our-team/" class="elementor-sub-item" tabindex="-1">Web Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9505"><a href="https://seo.paybitcoin.in.th/graphic-web-developer-join-our-team/" class="elementor-sub-item" tabindex="-1">Web Designer / Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9236"><a href="https://seo.paybitcoin.in.th/accountant-join-our-team/" class="elementor-sub-item" tabindex="-1">Accountant</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2498"><a href="https://seo.paybitcoin.in.th/our-partners/" class="elementor-sub-item" tabindex="-1">Our Partners</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7811"><a href="https://seo.paybitcoin.in.th/partnership/" class="elementor-sub-item" tabindex="-1">Cooperation</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-4917"><a href="https://seo.paybitcoin.in.th/" class="elementor-item" tabindex="-1">Real Estate</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-13334"><a href="https://seo.paybitcoin.in.th/" class="elementor-sub-item" tabindex="-1">Latest Deals</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15684"><a href="https://seo.paybitcoin.in.th/villas-for-sale/" class="elementor-sub-item" tabindex="-1">Villas / Houses</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15717"><a href="https://seo.paybitcoin.in.th/elementor-15688/" class="elementor-sub-item" tabindex="-1">Comdominium Projects</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7736"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Services</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10351"><a href="https://seo.paybitcoin.in.th/thailand-visa-support/" class="elementor-sub-item" tabindex="-1">Thailand Visa Support</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6011"><a href="https://seo.paybitcoin.in.th/private-jets-helicopters-booking/" class="elementor-sub-item" tabindex="-1">Jet Booking</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6945"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Health Care</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9732"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Dental</a>
+		<ul class="sub-menu elementor-nav-menu--dropdown">
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9731"><a href="https://seo.paybitcoin.in.th/german-dental-clinic/" class="elementor-sub-item" tabindex="-1">German Dental Clinic</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6946"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Beauty Care</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7739"><a href="https://seo.paybitcoin.in.th/cash-withdrawal-bitcoin-exchange-pos/" class="elementor-item" tabindex="-1">Crypto Exchanges</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14247"><a href="https://seo.paybitcoin.in.th/crypto-exchange/" class="elementor-sub-item" tabindex="-1">Crypto Calculator</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6170"><a href="https://seo.paybitcoin.in.th/vip-concierge-service-in-thailand/" class="elementor-item" tabindex="-1">Vip Concierge</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9786"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Night Life</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9785"><a href="https://seo.paybitcoin.in.th/empire-luxury-club/" class="elementor-sub-item" tabindex="-1">Empire Club</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4798"><a href="https://seo.paybitcoin.in.th/bitcoin-luxlife-thailand-property-tourism-latest-news-rss/" class="elementor-item" tabindex="-1">News</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11048"><a href="https://seo.paybitcoin.in.th/online-press-hot-topics" class="elementor-sub-item" tabindex="-1">Check Out Our Articles!</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4841"><a href="https://seo.paybitcoin.in.th/bitcoin-news-rss/" class="elementor-sub-item" tabindex="-1">Bitcoin</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4840"><a href="https://seo.paybitcoin.in.th/property-thailand-news-rss/" class="elementor-sub-item" tabindex="-1">Real Estate</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4839"><a href="https://seo.paybitcoin.in.th/tourism-thailand-news-rss/" class="elementor-sub-item" tabindex="-1">Thai Tourism</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4838"><a href="https://seo.paybitcoin.in.th/luxury-life-thailand-news-rss/" class="elementor-sub-item" tabindex="-1">Lux Life</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5668"><a href="https://seo.paybitcoin.in.th/f-a-q/" class="elementor-item" tabindex="-1">F.A.Q.</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14798"><a href="http://cn.paybitcoin.in.th" class="elementor-item" tabindex="-1">/   中文 / CHINESE</a></li>
+</ul></nav>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+						</div>
+					</div>
+		</div>	<div id="apus-main-content">
+		<script type="rocketlazyloadscript">
+        (function(w,d,u){
+                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
+                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+        })(window,document,'https://cdn.bitrix24.com/b17300645/crm/site_button/loader_4_bwcyr9.js');
+</script>
+		<section id="primary" class="content-area inner">
+	<main id="main" class="site-main content" role="main">
+
+					
+			<div class="clearfix container">
+									<div class="single-agency-wrapper single-listing-wrapper single-listing-agent-agency" data-latitude="12.8892976" data-longitude="100.878484">
+						
+
+<article id="post-3898" class="post-3898 agency type-agency status-publish has-post-thumbnail hentry">
+	
+	<!-- Main content -->
+
+	
+		
+		<div class="row">
+			<div class="col-xs-12 list-content-agency col-md-12">
+				<!-- breadcrumbs -->
+				<section id="apus-breadscrumb" class="breadcrumb-page apus-breadscrumb  "><div class="container"><div class="wrapper-breads">
+		<div class="wrapper-breads-inner"><div class="left-inner"><ol class="breadcrumb"><li><a href="https://seo.paybitcoin.in.th">Home</a>  </li> <li><a href="https://seo.paybitcoin.in.th/agency/">Agencies</a></li>   <li><span class="active">The Empire Dynasty Co., Ltd.</span></li></ol></div><div class="breadscrumb-inner clearfix"><h2 class="bread-title">The Empire Dynasty Co., Ltd.</h2></div></div></div></div></section>				
+				<div class="agency-detail-header top-detail-member">
+    <div class="flex">
+
+                    <div class="member-thumbnail-wrapper flex-middle justify-content-center member-thumbnail-agency">
+                    <div class="agency-logo agency-thumbnail">
+        <a href="https://seo.paybitcoin.in.th/agency/empire-dynasty/">
+                            <div class="image-wrapper"><img width="300" height="269" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 300 269&#039;%2F%3E" class="attachment-full size-full unveil-image" alt="Find Your Dream Home and Pay with Bitcoin!" data-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/empire_logo.jpg" /></div>
+                    </a>
+    </div>
+                   
+            </div>
+        
+        <div class="member-information flex-middle">
+            <div class="inner">
+                <div class="title-wrapper">
+                    <h1 class="member-title">The Empire Dynasty Co., Ltd.</h1>                                    </div>
+
+                                    <div class="agency-location"><a href="//maps.google.com/maps?q=13%2F84+Moo.12+Nong+Prue%2C+Bang+Lamung%2C+Chonburi+20150&#038;zoom=14&#038;size=512x512&#038;maptype=roadmap&#038;sensor=false" target="_blank">13/84 Moo.12 Nong Prue, Bang Lamung, Chonburi 20150</a></div>                
+                                    
+                    <div class="member-metas">
+                        
+                        
+                        <div class="agency-email">
+                        <a href="mailto:info@paybitcoin.in.th">info@paybitcoin.in.th</a>
+        </div>
+                        <div class="agency-website">
+                        <a href="http://www.theempiretower.com" target="_blank">http://www.theempiretower.com</a>
+        </div>                    </div>
+                
+                            </div>
+        </div>
+    </div>
+</div>
+				<div class="agency-detail-tabs detail-tabs-member">
+			        <ul role="tablist" class="nav nav-tabs nav-member">
+			            <li class="active">
+			                <a href="#tab-agency-overview" data-toggle="tab">Overview</a>
+			            </li>
+			            			                <li>
+			                    <a href="#tab-agency-properties" data-toggle="tab">Properties</a>
+			                </li>
+			            			            			                <li>
+			                    <a href="#tab-agency-agents" data-toggle="tab">Agents</a>
+			                </li>
+			            			            			                <li>
+			                    <a href="#tab-agency-reviews" data-toggle="tab">Reviews</a>
+			                </li>
+			            			        </ul>
+				
+					<div class="tab-content">
+						<div id="tab-agency-overview" class="tab-pane active">
+							<div class="description inner">
+    <div class="description-inner">
+        <p style="text-align: justify;"><strong>The Empire Dynasty believe in the power of good design.</strong> They commit to improve quality of life by creating affordable living space incorporating technology, economy and design. They build not only home but valuable assets. They endeavor to keep their  promise to make sure every detail is bringing us to be a leading and innovative lifestyle property developer fostering sustainability and well-being for all.</p>
+<p style="text-align: justify;"><strong>The Empire rooted from Matrix Developments</strong>, a fully integrated property development company founded by our CEO, Mr. Menahem Haim. Hyde Park I was the first low rise-8 floors- condominium project of Matrix. It was constructed on 2 Rai of land in the middle of Thappraya Road. Within a short period of time, Hyde Park I was sold out and clients demanded for more product from the company. Due to this solid start, Matrix releases its products to Pattaya property market ever since. Over these years, all our projects were borne out of an innovative endeavor together with demands of the continuously growing market in Pattaya. Individually, each Project is known for its unique features and location.</p>
+<p> </p>
+
+
+<p></p>
+    </div>
+</div>														
+							<div class="location-single-member">
+	<div class="title-wrapper flex-middle">
+    	<h3 class="title">Location</h3>
+    	    		<div class="location ali-right">
+    			<div class="agency-location"><a href="//maps.google.com/maps?q=13%2F84+Moo.12+Nong+Prue%2C+Bang+Lamung%2C+Chonburi+20150&#038;zoom=14&#038;size=512x512&#038;maptype=roadmap&#038;sensor=false" target="_blank">13/84 Moo.12 Nong Prue, Bang Lamung, Chonburi 20150</a></div>    		</div>
+    	    </div>
+            <div class="location-inner">
+            <div id="properties-google-maps" class="single-property-map single-map-agency"></div>
+        </div>
+    </div>						</div>
+						
+													<div id="tab-agency-properties" class="tab-pane">
+								<div class="inner">
+									    <div class="agent-detail-properties agent-agency-detail-properties">
+        
+        <div class="row">
+                            <div class="col-xs-12 list-item">
+                    
+<article class="map-item property-list property-list-member property-item post-14675 property type-property status-publish has-post-thumbnail hentry property_type-condo property_location-na-jomtien property_location-pattaya property_status-for-sale property_label-et property_label-new-offer property_label-sea-view property_amenity-24-hour-security property_amenity-air-conditioning property_amenity-barbeque property_amenity-elevator property_amenity-fitness-room property_amenity-fully-furnished property_amenity-garden property_amenity-gym property_amenity-kids-room property_amenity-parking property_amenity-sauna property_amenity-sea-view property_amenity-seafront-beachfront property_amenity-terrace-balcony property_amenity-wifi" data-latitude="12.888252147810347" data-longitude="100.87669260194413" data-img="https://seo.paybitcoin.in.th/wp-content/uploads/2021/07/cover-empire-tower-condos-fo-sale-pattaya-2-850x550.jpg">
+    <div class="flex">
+
+        <div class="left-inner flex-middle justify-content-center">
+            <div class="property-thumbnail-wrapper">
+                
+                    <div class="image-thumbnail">
+        <a class="property-image" href="https://seo.paybitcoin.in.th/property/lux-studio/">
+        	<div class="image-wrapper"><img width="260" height="240" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 260 240&#039;%2F%3E" class="attachment-homeo-property-list size-homeo-property-list unveil-image" alt="Find Your Dream Home and Pay with Bitcoin!" data-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/07/cover-empire-tower-condos-fo-sale-pattaya-2-260x240.jpg" /></div>        </a>
+    </div>
+                    
+                <div class="bottom-label">
+                    <a href="javascript:void(0)" class="btn-add-property-favorite" data-property_id="14675" data-nonce="b97d35647c"
+			                data-toggle="tooltip"
+                title="Add Favorite"
+            >
+							<i class="flaticon-heart"></i>
+								</a><a href="javascript:void(0)" class="btn-add-property-compare" data-property_id="14675" data-nonce="64804fac30"
+                            data-toggle="tooltip"
+                title="Add Compare"
+            >
+							<i class="flaticon-transfer-1"></i>
+								</a>                </div>
+            </div>
+        </div>
+
+        <div class="right-inner flex-middle">
+            <div class="inner">
+                <div class="property-information">
+                    <div class="property-information-top flex-middle">
+                                                        <div class="top-label">
+                                    <a class="status-property-label" href="https://seo.paybitcoin.in.th/property-status/for-sale/" style="background: #ffffff;color: #000000;">For Sale</a>                                                                        <a class="label-property-label" href="https://seo.paybitcoin.in.th/property-label/et/" style="">ET</a>
+        	            	<a class="label-property-label" href="https://seo.paybitcoin.in.th/property-label/new-offer/" style="background: #f73838;color: #ffffff;">New Offer!</a>
+        	            	<a class="label-property-label" href="https://seo.paybitcoin.in.th/property-label/sea-view/" style="">Sea View</a>                                </div>
+                                                        <div class="ali-right">
+                            <div class="property-price"><span class="suffix">$</span><span class="price-text">2700000</span></div>                        </div>
+                    </div>
+                    <div class="hidden-xs">
+                        <div class="property-type">
+							<div class="property-type with-no-title">
+						            	<a class="type-property" href="https://seo.paybitcoin.in.th/property-type/condo/" style="">Condo</a>		        		    	</div>
+	    </div>                    </div>
+                    <h2 class="property-title"><a href="https://seo.paybitcoin.in.th/property/lux-studio/" rel="bookmark">Luxury Studio</a></h2>                    <div class="property-location with-icon"><i class="flaticon-maps-and-flags"></i> <a href="//maps.google.com/maps?q=Na-Jomtien%2C+Pattaya&#038;zoom=14&#038;size=512x512&#038;maptype=roadmap&#038;sensor=false" target="_blank">Na-Jomtien, Pattaya</a></div>
+                                            <div class="property-metas flex-middle flex-wrap hidden-xs">
+                            
+                            <div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Beds:					</span>
+				
+								1							</div>
+
+		</div><div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Baths:					</span>
+				
+								1							</div>
+
+		</div>                        </div>
+                                    </div>
+                                    <div class="property-metas-bottom flex-middle hidden-xs">
+                        <div class="avatar-wrapper flex-middle">
+            						<div class="avatar-img">
+													<a href="https://seo.paybitcoin.in.th/agency/empire-dynasty/">
+													<div class="image-wrapper"><img width="150" height="150" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 150 150&#039;%2F%3E" class="attachment-thumbnail size-thumbnail unveil-image" alt="Find Your Dream Home and Pay with Bitcoin!" data-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/empire_logo-150x150.jpg" /></div>													</a>
+											</div>
+								<div class="name-author">
+											<a href="https://seo.paybitcoin.in.th/agency/empire-dynasty/">
+					                		The Empire Dynasty Co., Ltd.                							</a>
+					                </div>
+	        </div>                        <div class="ali-right">
+                            <div class="property-postdate">1 month ago</div>                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+            <div class="property-metas flex-middle flex-wrap visible-xs">
+            <div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Beds:					</span>
+				
+								1							</div>
+
+		</div><div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Baths:					</span>
+				
+								1							</div>
+
+		</div>        </div>
+    </article><!-- #post-## -->
+
+                </div>
+                            <div class="col-xs-12 list-item">
+                    
+<article class="map-item property-list property-list-member property-item post-14709 property type-property status-publish has-post-thumbnail hentry property_type-condo property_location-na-jomtien property_location-pattaya property_status-for-sale property_label-et property_label-reduced-price property_amenity-24-hour-security property_amenity-air-conditioning property_amenity-barbeque property_amenity-close-to-the-beach property_amenity-elevator property_amenity-fitness-room property_amenity-fully-furnished property_amenity-garden property_amenity-hi-fi property_amenity-sauna-room property_amenity-sea-view property_amenity-seafront-beachfront property_amenity-terrace-balcony property_amenity-wifi" data-latitude="12.888252147810347" data-longitude="100.87669260194413" data-img="https://seo.paybitcoin.in.th/wp-content/uploads/2021/07/cover-empire-tower-condos-fo-sale-pattaya-1-850x550.jpg">
+    <div class="flex">
+
+        <div class="left-inner flex-middle justify-content-center">
+            <div class="property-thumbnail-wrapper">
+                
+                    <div class="image-thumbnail">
+        <a class="property-image" href="https://seo.paybitcoin.in.th/property/lux-1-bed-condo/">
+        	<div class="image-wrapper"><img width="260" height="240" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 260 240&#039;%2F%3E" class="attachment-homeo-property-list size-homeo-property-list unveil-image" alt="Find Your Dream Home and Pay with Bitcoin!" data-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/07/cover-empire-tower-condos-fo-sale-pattaya-1-260x240.jpg" /></div>        </a>
+    </div>
+                    
+                <div class="bottom-label">
+                    <a href="javascript:void(0)" class="btn-add-property-favorite" data-property_id="14709" data-nonce="b97d35647c"
+			                data-toggle="tooltip"
+                title="Add Favorite"
+            >
+							<i class="flaticon-heart"></i>
+								</a><a href="javascript:void(0)" class="btn-add-property-compare" data-property_id="14709" data-nonce="64804fac30"
+                            data-toggle="tooltip"
+                title="Add Compare"
+            >
+							<i class="flaticon-transfer-1"></i>
+								</a>                </div>
+            </div>
+        </div>
+
+        <div class="right-inner flex-middle">
+            <div class="inner">
+                <div class="property-information">
+                    <div class="property-information-top flex-middle">
+                                                        <div class="top-label">
+                                    <a class="status-property-label" href="https://seo.paybitcoin.in.th/property-status/for-sale/" style="background: #ffffff;color: #000000;">For Sale</a>                                                                        <a class="label-property-label" href="https://seo.paybitcoin.in.th/property-label/et/" style="">ET</a>
+        	            	<a class="label-property-label" href="https://seo.paybitcoin.in.th/property-label/reduced-price/" style="background: #ea5e0e;color: #ffffff;">Reduced Price!</a>                                </div>
+                                                        <div class="ali-right">
+                            <div class="property-price"><span class="suffix">$</span><span class="price-text">3690000</span></div>                        </div>
+                    </div>
+                    <div class="hidden-xs">
+                        <div class="property-type">
+							<div class="property-type with-no-title">
+						            	<a class="type-property" href="https://seo.paybitcoin.in.th/property-type/condo/" style="">Condo</a>		        		    	</div>
+	    </div>                    </div>
+                    <h2 class="property-title"><a href="https://seo.paybitcoin.in.th/property/lux-1-bed-condo/" rel="bookmark">Luxury 1-Bed Condo</a></h2>                    <div class="property-location with-icon"><i class="flaticon-maps-and-flags"></i> <a href="//maps.google.com/maps?q=Na-Jomtien%2C+Pattaya&#038;zoom=14&#038;size=512x512&#038;maptype=roadmap&#038;sensor=false" target="_blank">Na-Jomtien, Pattaya</a></div>
+                                            <div class="property-metas flex-middle flex-wrap hidden-xs">
+                            
+                            <div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Beds:					</span>
+				
+								1							</div>
+
+		</div><div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Baths:					</span>
+				
+								1							</div>
+
+		</div>                        </div>
+                                    </div>
+                                    <div class="property-metas-bottom flex-middle hidden-xs">
+                        <div class="avatar-wrapper flex-middle">
+            						<div class="avatar-img">
+													<a href="https://seo.paybitcoin.in.th/agency/empire-dynasty/">
+													<div class="image-wrapper"><img width="150" height="150" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 150 150&#039;%2F%3E" class="attachment-thumbnail size-thumbnail unveil-image" alt="Find Your Dream Home and Pay with Bitcoin!" data-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/empire_logo-150x150.jpg" /></div>													</a>
+											</div>
+								<div class="name-author">
+											<a href="https://seo.paybitcoin.in.th/agency/empire-dynasty/">
+					                		The Empire Dynasty Co., Ltd.                							</a>
+					                </div>
+	        </div>                        <div class="ali-right">
+                            <div class="property-postdate">1 month ago</div>                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+            <div class="property-metas flex-middle flex-wrap visible-xs">
+            <div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Beds:					</span>
+				
+								1							</div>
+
+		</div><div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Baths:					</span>
+				
+								1							</div>
+
+		</div>        </div>
+    </article><!-- #post-## -->
+
+                </div>
+                            <div class="col-xs-12 list-item">
+                    
+<article class="map-item property-list property-list-member property-item post-14728 property type-property status-publish has-post-thumbnail hentry property_type-condo property_location-na-jomtien property_location-pattaya property_status-for-sale property_label-et property_label-reduced-price property_amenity-24-hour-security property_amenity-air-conditioning property_amenity-barbeque property_amenity-cable-tv property_amenity-close-to-the-beach property_amenity-covered-car-parking-place property_amenity-elevator property_amenity-fitness-room property_amenity-fully-furnished property_amenity-garden property_amenity-hi-fi property_amenity-kids-room property_amenity-sauna-room property_amenity-sea-view property_amenity-seafront-beachfront property_amenity-security property_amenity-wifi" data-latitude="12.888252147810347" data-longitude="100.87669260194413" data-img="https://seo.paybitcoin.in.th/wp-content/uploads/2021/07/cover-empire-tower-condos-fo-sale-pattaya-3-850x550.jpg">
+    <div class="flex">
+
+        <div class="left-inner flex-middle justify-content-center">
+            <div class="property-thumbnail-wrapper">
+                
+                    <div class="image-thumbnail">
+        <a class="property-image" href="https://seo.paybitcoin.in.th/property/lux-2-bed-condo/">
+        	<div class="image-wrapper"><img width="260" height="240" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 260 240&#039;%2F%3E" class="attachment-homeo-property-list size-homeo-property-list unveil-image" alt="Find Your Dream Home and Pay with Bitcoin!" data-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/07/cover-empire-tower-condos-fo-sale-pattaya-3-260x240.jpg" /></div>        </a>
+    </div>
+                    
+                <div class="bottom-label">
+                    <a href="javascript:void(0)" class="btn-add-property-favorite" data-property_id="14728" data-nonce="b97d35647c"
+			                data-toggle="tooltip"
+                title="Add Favorite"
+            >
+							<i class="flaticon-heart"></i>
+								</a><a href="javascript:void(0)" class="btn-add-property-compare" data-property_id="14728" data-nonce="64804fac30"
+                            data-toggle="tooltip"
+                title="Add Compare"
+            >
+							<i class="flaticon-transfer-1"></i>
+								</a>                </div>
+            </div>
+        </div>
+
+        <div class="right-inner flex-middle">
+            <div class="inner">
+                <div class="property-information">
+                    <div class="property-information-top flex-middle">
+                                                        <div class="top-label">
+                                    <a class="status-property-label" href="https://seo.paybitcoin.in.th/property-status/for-sale/" style="background: #ffffff;color: #000000;">For Sale</a>                                                                        <a class="label-property-label" href="https://seo.paybitcoin.in.th/property-label/et/" style="">ET</a>
+        	            	<a class="label-property-label" href="https://seo.paybitcoin.in.th/property-label/reduced-price/" style="background: #ea5e0e;color: #ffffff;">Reduced Price!</a>                                </div>
+                                                        <div class="ali-right">
+                            <div class="property-price"><span class="suffix">$</span><span class="price-text">10390000</span></div>                        </div>
+                    </div>
+                    <div class="hidden-xs">
+                        <div class="property-type">
+							<div class="property-type with-no-title">
+						            	<a class="type-property" href="https://seo.paybitcoin.in.th/property-type/condo/" style="">Condo</a>		        		    	</div>
+	    </div>                    </div>
+                    <h2 class="property-title"><a href="https://seo.paybitcoin.in.th/property/lux-2-bed-condo/" rel="bookmark">Luxury 2-Beds Condo</a></h2>                    <div class="property-location with-icon"><i class="flaticon-maps-and-flags"></i> <a href="//maps.google.com/maps?q=Na-Jomtien%2C+Pattaya&#038;zoom=14&#038;size=512x512&#038;maptype=roadmap&#038;sensor=false" target="_blank">Na-Jomtien, Pattaya</a></div>
+                                            <div class="property-metas flex-middle flex-wrap hidden-xs">
+                            
+                            <div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Beds:					</span>
+				
+								2							</div>
+
+		</div><div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Baths:					</span>
+				
+								2							</div>
+
+		</div>                        </div>
+                                    </div>
+                                    <div class="property-metas-bottom flex-middle hidden-xs">
+                        <div class="avatar-wrapper flex-middle">
+            						<div class="avatar-img">
+													<a href="https://seo.paybitcoin.in.th/agency/empire-dynasty/">
+													<div class="image-wrapper"><img width="150" height="150" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 150 150&#039;%2F%3E" class="attachment-thumbnail size-thumbnail unveil-image" alt="Find Your Dream Home and Pay with Bitcoin!" data-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/empire_logo-150x150.jpg" /></div>													</a>
+											</div>
+								<div class="name-author">
+											<a href="https://seo.paybitcoin.in.th/agency/empire-dynasty/">
+					                		The Empire Dynasty Co., Ltd.                							</a>
+					                </div>
+	        </div>                        <div class="ali-right">
+                            <div class="property-postdate">1 month ago</div>                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+            <div class="property-metas flex-middle flex-wrap visible-xs">
+            <div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Beds:					</span>
+				
+								2							</div>
+
+		</div><div class="property-meta with-icon-title">
+
+			<div class="property-meta">
+
+									<span class="title-meta">
+						Baths:					</span>
+				
+								2							</div>
+
+		</div>        </div>
+    </article><!-- #post-## -->
+
+                </div>
+                    </div>
+            </div>
+								</div>
+							</div>
+																			<div id="tab-agency-agents" class="tab-pane">
+								<div class="inner">
+									    <div class="agent-detail-agents">
+        No agents found    </div>
+    								</div>
+							</div>
+						
+													<div id="tab-agency-reviews" class="tab-pane">
+								<!-- Review -->
+								
+
+<div id="reviews">
+		<div id="review_form_wrapper" class="commentform commentform-detail-agency">
+		<div id="review_form">
+				      	<div class="commentform reset-button-default">
+		    	<div class="clearfix">
+			    		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Be the first to review &ldquo;The Empire Dynasty Co., Ltd.&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="/agency/empire-dynasty/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://seo.paybitcoin.in.th/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>	        <div class="rating-wrapper comment-form-rating">
+	        		            <div class="rating-inner">
+		                <div class="comment-form-rating">
+		                				                	<span class="subtitle">Rating</span>
+			                		                    <ul class="review-stars">
+		                        		                                <li><span class="fas fa-star active"></span></li>
+		                                		                                <li><span class="fas fa-star active"></span></li>
+		                                		                                <li><span class="fas fa-star active"></span></li>
+		                                		                                <li><span class="fas fa-star active"></span></li>
+		                                		                                <li><span class="fas fa-star active"></span></li>
+		                                		                    </ul>
+		                    <input type="hidden" value="5" name="rating[default-key]" class="rating">
+		                </div>
+		            </div>
+		            	        </div>
+	        <div class="row"><div class="col-xs-12 col-sm-6"><div class="form-group"><label>Name</label><input id="author" placeholder="Your Name" class="form-control" name="author" type="text" value="" size="30" aria-required="true" /></div></div>
+<div class="col-xs-12 col-sm-6"><div class="form-group"><label>Email</label><input id="email" placeholder="your@mail.com" class="form-control" name="email" type="text" value="" size="30" aria-required="true" /></div></div></div>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<div class="form-group"><label>Review</label><textarea id="comment" class="form-control" placeholder="Write Comment" name="comment" cols="45" rows="5" aria-required="true"></textarea></div><p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-theme " class="submit" value="Submit Review" /> <input type='hidden' name='comment_post_ID' value='3898' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+			      	</div>
+	      	</div>
+	      			</div>
+	</div>
+</div>							</div>
+											</div>
+				</div>
+			</div>
+					</div>
+		
+	</article><!-- #post-## -->
+
+					</div>
+				
+							</div>
+		
+	</main><!-- .site-main -->
+</section><!-- .content-area -->
+	</div><!-- .site-content -->
+					<footer id="apus-footer" class="apus-footer " role="contentinfo">
+				<div class="footer-default">
+					<div class="apus-footer-inner">
+						<div class="apus-copyright">
+							<div class="container">
+								<div class="copyright-content clearfix">
+									<div class="text-copyright text-center">
+										&copy; 2021 - Homeo. All Rights Reserved.  Powered by <a href="//themeforest.net/user/apustheme">ApusTheme</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer><!-- .site-footer -->
+					<a href="#" id="back-to-top" class="add-fix-top">
+			<i class="flaticon-arrows"></i>
+		</a>
+	</div><!-- .site -->
+
+		<script type="text/javascript">
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.defered = false;
+			window.RS_MODULES.waiting = ["main","parallax","video","slideanims","actions","layeranimation","navigation","carousel","panzoom"];
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+		<div class="eg-everest-lightbox-overlay">
+    <div class="eg-everest-lightbox-controls">
+        <span class="eg-everest-lightbox-previous">Previous</span>
+        <span class="eg-everest-lightbox-next">Next</span>
+    </div>
+    <div class="eg-close-pop-up">
+        <span class="eg-everest-lightbox-close">Close</span>
+    </div>
+    <div class="eg-everest-lightbox-inner-overlay"></div>
+    <div class="eg-everest-lightbox-wrap">
+        <div class="eg-everest-lightbox-source-holder">
+            <img src=""/>
+        </div>
+        <div class="eg-everest-lightbox-details-wrap">
+            <div class="eg-everest-lightbox-caption">Test Caption</div>
+            <div class="eg-everest-lightbox-description">Test Description goes like this</div>
+        </div>
+    </div>
+</div>
+	<div id="compare-sidebar" class="">
+		<h3 class="title">Compare Properties</h3>
+		<div class="compare-sidebar-inner">
+			<div class="compare-list">
+							</div>
+					</div>
+		<div class="compare-sidebar-btn">
+			Compare (<span class="count">0</span>)
+		</div>
+	</div><!-- .widget-area -->
+		<div data-elementor-type="popup" data-elementor-id="5663" class="elementor elementor-5663 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;slideInLeft&quot;,&quot;open_selector&quot;:&quot;#mobilemenu&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1.2,&quot;sizes&quot;:[]},&quot;triggers&quot;:[],&quot;timing&quot;:{&quot;devices_devices&quot;:[&quot;tablet&quot;,&quot;mobile&quot;],&quot;devices&quot;:&quot;yes&quot;}}">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-d1cfa70 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d1cfa70" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;tmea_shape_divider_top&quot;:&quot;none&quot;,&quot;tmea_shape_divider_bottom&quot;:&quot;none&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9478642" data-id="9478642" data-element_type="column">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2652d6b3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2652d6b3" data-element_type="section" data-settings="{&quot;tmea_shape_divider_top&quot;:&quot;none&quot;,&quot;tmea_shape_divider_bottom&quot;:&quot;none&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8031e31" data-id="8031e31" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-233fdf6c elementor-widget elementor-widget-heading" data-id="233fdf6c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Start Using Bitcoin in Thailand! Enjoy Your Life!</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d509c83 elementor-widget elementor-widget-image" data-id="d509c83" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="660" height="660" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20660%20660'%3E%3C/svg%3E" class="attachment-large size-large" alt="Find Your Dream Home and Pay with Bitcoin!" data-lazy-srcset="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-1024x1024.png 1024w, https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-300x300.png 300w, https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-150x150.png 150w, https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-768x768.png 768w, https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1.png 1200w" data-lazy-sizes="(max-width: 660px) 100vw, 660px" data-lazy-src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-1024x1024.png" /><noscript><img width="660" height="660" src="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-1024x1024.png" class="attachment-large size-large" alt="Find Your Dream Home and Pay with Bitcoin!" srcset="https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-1024x1024.png 1024w, https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-300x300.png 300w, https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-150x150.png 150w, https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1-768x768.png 768w, https://seo.paybitcoin.in.th/wp-content/uploads/2021/02/logo_wanda.exchange_1200x1200_new_Монтажная-область-1.png 1200w" sizes="(max-width: 660px) 100vw, 660px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-b12b1c1 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="b12b1c1" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-0daf378 elementor-nav-menu__text-align-aside elementor-widget elementor-widget-nav-menu" data-id="0daf378" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;dropdown&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;fas fa-caret-down&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i class="eicon-menu-bar" aria-hidden="true" role="presentation"></i>
+			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true"><ul id="menu-2-0daf378" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7731"><a href="https://seo.paybitcoin.in.th/convert-bitcoin-in-thailand/" class="elementor-item" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6753"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">About</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3724"><a href="https://seo.paybitcoin.in.th/about-our-company-projects-team/" class="elementor-sub-item" tabindex="-1">Who We Are?</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10898"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Our Media Hub</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11042"><a href="https://seo.paybitcoin.in.th/online-press-hot-topics" class="elementor-sub-item" tabindex="-1">Hot! &#8211; Check Out Our Articles!</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11082"><a href="https://seo.paybitcoin.in.th/video-library-wanda-exchange/" class="elementor-sub-item" tabindex="-1">Video Library</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9234"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Career – Join our Team!</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9235"><a href="https://seo.paybitcoin.in.th/job-wanda-exchange-data-analyst/" class="elementor-sub-item" tabindex="-1">Data Analyst</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9245"><a href="https://seo.paybitcoin.in.th/job-wanda-exchange-it-developer/" class="elementor-sub-item" tabindex="-1">IT Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9254"><a href="https://seo.paybitcoin.in.th/web-developer-join-our-team/" class="elementor-sub-item" tabindex="-1">Web Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9505"><a href="https://seo.paybitcoin.in.th/graphic-web-developer-join-our-team/" class="elementor-sub-item" tabindex="-1">Web Designer / Developer</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9236"><a href="https://seo.paybitcoin.in.th/accountant-join-our-team/" class="elementor-sub-item" tabindex="-1">Accountant</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2498"><a href="https://seo.paybitcoin.in.th/our-partners/" class="elementor-sub-item" tabindex="-1">Our Partners</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7811"><a href="https://seo.paybitcoin.in.th/partnership/" class="elementor-sub-item" tabindex="-1">Cooperation</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-4917"><a href="https://seo.paybitcoin.in.th/" class="elementor-item" tabindex="-1">Real Estate</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-13334"><a href="https://seo.paybitcoin.in.th/" class="elementor-sub-item" tabindex="-1">Latest Deals</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15684"><a href="https://seo.paybitcoin.in.th/villas-for-sale/" class="elementor-sub-item" tabindex="-1">Villas / Houses</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15717"><a href="https://seo.paybitcoin.in.th/elementor-15688/" class="elementor-sub-item" tabindex="-1">Comdominium Projects</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7736"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Services</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10351"><a href="https://seo.paybitcoin.in.th/thailand-visa-support/" class="elementor-sub-item" tabindex="-1">Thailand Visa Support</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6011"><a href="https://seo.paybitcoin.in.th/private-jets-helicopters-booking/" class="elementor-sub-item" tabindex="-1">Jet Booking</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6945"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Health Care</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9732"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Dental</a>
+		<ul class="sub-menu elementor-nav-menu--dropdown">
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9731"><a href="https://seo.paybitcoin.in.th/german-dental-clinic/" class="elementor-sub-item" tabindex="-1">German Dental Clinic</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6946"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Beauty Care</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7739"><a href="https://seo.paybitcoin.in.th/cash-withdrawal-bitcoin-exchange-pos/" class="elementor-item" tabindex="-1">Crypto Exchanges</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14247"><a href="https://seo.paybitcoin.in.th/crypto-exchange/" class="elementor-sub-item" tabindex="-1">Crypto Calculator</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6170"><a href="https://seo.paybitcoin.in.th/vip-concierge-service-in-thailand/" class="elementor-item" tabindex="-1">Vip Concierge</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9786"><a href="#" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Night Life</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9785"><a href="https://seo.paybitcoin.in.th/empire-luxury-club/" class="elementor-sub-item" tabindex="-1">Empire Club</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4798"><a href="https://seo.paybitcoin.in.th/bitcoin-luxlife-thailand-property-tourism-latest-news-rss/" class="elementor-item" tabindex="-1">News</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11048"><a href="https://seo.paybitcoin.in.th/online-press-hot-topics" class="elementor-sub-item" tabindex="-1">Check Out Our Articles!</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4841"><a href="https://seo.paybitcoin.in.th/bitcoin-news-rss/" class="elementor-sub-item" tabindex="-1">Bitcoin</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4840"><a href="https://seo.paybitcoin.in.th/property-thailand-news-rss/" class="elementor-sub-item" tabindex="-1">Real Estate</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4839"><a href="https://seo.paybitcoin.in.th/tourism-thailand-news-rss/" class="elementor-sub-item" tabindex="-1">Thai Tourism</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4838"><a href="https://seo.paybitcoin.in.th/luxury-life-thailand-news-rss/" class="elementor-sub-item" tabindex="-1">Lux Life</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5668"><a href="https://seo.paybitcoin.in.th/f-a-q/" class="elementor-item" tabindex="-1">F.A.Q.</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14798"><a href="http://cn.paybitcoin.in.th" class="elementor-item" tabindex="-1">/   中文 / CHINESE</a></li>
+</ul></nav>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-0a567cf elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="0a567cf" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-630757b3 elementor-widget elementor-widget-text-editor" data-id="630757b3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p class="p1">From Now you can use Bitcoin in Thailand &#8211; we convert crypto and the seller gets Thai baht for goods and services.</p><p>Our platform is the gateway for merchants and Real Assets Agents to interact actively with crypto users worldwide. Open doors to new possibilities in Thailand!</p><p>We educate our partners and offer free help by personal assistants at sales. It is our vision and goal to bring as many investors to Thailand and help the country to become the legal paradise for honest crypto owners worldwide.<span class="Apple-converted-space"> </span></p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-1a5f7bd e-grid-align-left elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="1a5f7bd" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-f7303db" href="https://www.linkedin.com/company/paybitcoin-in-thailand" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<i class="fab fa-linkedin"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-9b5e138" href="http://twitter.com/PaybitcoinT" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<i class="fab fa-twitter"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-25edd7d" href="https://www.facebook.com/paybitcoin.thailand" target="_blank">
+						<span class="elementor-screen-only">Facebook</span>
+						<i class="fab fa-facebook"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-297d0c1" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-telegram elementor-repeater-item-e01fc0e" target="_blank">
+						<span class="elementor-screen-only">Telegram</span>
+						<i class="fab fa-telegram"></i>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-33c9ef7a elementor-widget elementor-widget-heading" data-id="33c9ef7a" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Wanda.Exchange Co., Ltd.</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-30b9db13 elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="30b9db13" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-map-marker-alt"></i>						</span>
+										<span class="elementor-icon-list-text">99/47 Moo.13, Nongprue Sub-district, Chonburi 20150, Thailand</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-phone-square"></i>						</span>
+										<span class="elementor-icon-list-text">+66. 38111801 | + 66. 636263479 </span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-envelope"></i>						</span>
+										<span class="elementor-icon-list-text">info@paybitcoin.in.th</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				</div>
+		</div>
+					<link rel="preload" as="font" id="rs-icon-set-revicon-woff" href="https://seo.paybitcoin.in.th/wp-content/plugins/revslider/public/assets/fonts/revicons/revicons.woff?5510888" type="font/woff" crossorigin="anonymous" media="all" />
+
+
+
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/comment-reply.min.js?ver=5.8' id='comment-reply-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/themes/homeo/js/bootstrap.min.js?ver=20150330' id='bootstrap-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/themes/homeo/js/slick.min.js?ver=1.8.0' id='slick-js'></script>
+<script type='text/javascript' id='countdown-js-extra'>
+/* <![CDATA[ */
+var homeo_countdown_opts = {"days":"Days","hours":"Hrs","mins":"Mins","secs":"Secs"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/themes/homeo/js/countdown.js?ver=1628910928' id='countdown-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/themes/homeo/js/jquery.magnific-popup.min.js?ver=1.1.0' id='jquery-magnific-popup-js'></script>
+<script data-minify="1" type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/themes/homeo/js/jquery.unveil.js?ver=1628910928' id='jquery-unveil-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/themes/homeo/js/perfect-scrollbar.min.js?ver=1.5.0' id='perfect-scrollbar-js'></script>
+<script data-minify="1" type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/themes/homeo/js/jquery.mmenu.js?ver=1628910928' id='jquery-mmenu-js'></script>
+<script type='text/javascript' id='homeo-functions-js-extra'>
+/* <![CDATA[ */
+var homeo_ajax = {"ajaxurl":"https:\/\/seo.paybitcoin.in.th\/wp-admin\/admin-ajax.php","previous":"Previous","next":"Next","mmenu_title":"Menu"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/themes/homeo/js/functions.js?ver=1628910928' id='homeo-functions-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='homeo-functions-js-after'>
+(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/theme-masters-elementor/assets/js/tmea_animations.min.js?ver=3.0' id='tmea-animations-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/theme-masters-elementor/assets/js/library/bg-effects.min.js?ver=3.0' id='tmea-bg-effects-js'></script>
+<script type='text/javascript' id='tmea-bg-effect-temp-js-extra'>
+/* <![CDATA[ */
+var TMEBgEffectParams = {"tmeURL":"https:\/\/seo.paybitcoin.in.th\/wp-content\/plugins\/theme-masters-elementor\/"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/theme-masters-elementor/assets/js/library/bg-effect-temp.min.js?ver=3.0' id='tmea-bg-effect-temp-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/theme-masters-elementor/assets/js/library/parallax-bg.min.js?ver=3.0' id='tmea-parallax-bg-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/theme-masters-elementor/assets/js/library/gradient-bg.min.js?ver=3.0' id='tmea-gradient-bg-anim-js'></script>
+<script type='text/javascript' id='tmea-shape-divider-js-extra'>
+/* <![CDATA[ */
+var TMEDividerParams = {"tmeURL":"https:\/\/seo.paybitcoin.in.th\/wp-content\/plugins\/theme-masters-elementor\/"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/theme-masters-elementor/assets/js/library/shape-divider.min.js?ver=3.0' id='tmea-shape-divider-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.7' id='regenerator-runtime-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/seo.paybitcoin.in.th\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1628910928' id='contact-form-7-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.0' id='tp-tools-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.0' id='revmin-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/wp-realestate/assets/js/magnific/jquery.magnific-popup.min.js?ver=1.1.0' id='magnific-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1' id='jquery-ui-core-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/jquery/ui/mouse.min.js?ver=1.12.1' id='jquery-ui-mouse-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/jquery/ui/slider.min.js?ver=1.12.1' id='jquery-ui-slider-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/wp-realestate/assets/js/jquery.ui.touch-punch.min.js?ver=20150330' id='jquery-ui-touch-punch-js'></script>
+<script type='text/javascript' id='wp-realestate-main-js-extra'>
+/* <![CDATA[ */
+var wp_realestate_opts = {"ajaxurl":"https:\/\/seo.paybitcoin.in.th\/wp-admin\/admin-ajax.php","ajaxurl_endpoint":"\/?wre-ajax=%%endpoint%%","dashboard_url":"https:\/\/seo.paybitcoin.in.th\/agency\/empire-dynasty\/","login_register_url":"https:\/\/seo.paybitcoin.in.th\/agency\/empire-dynasty\/","after_login_page_agency_url":"https:\/\/seo.paybitcoin.in.th\/agency\/empire-dynasty\/","after_login_page_agent_url":"https:\/\/seo.paybitcoin.in.th\/agency\/empire-dynasty\/","after_login_page_user_url":"https:\/\/seo.paybitcoin.in.th\/agency\/empire-dynasty\/","home_url":"https:\/\/seo.paybitcoin.in.th\/","money_decimals":"0","money_dec_point":"0","money_thousands_separator":"","show_more":"Show more +","show_more_icon":"","show_less":"Show less -","show_less_icon":"","map_service":"","geocoder_country":"","rm_item_txt":"Are you sure?","ajax_nonce":"e94b02ec21","approval_type":"","resend_otp_wait_time":"30","recaptcha_enable":"","divisors":{"":{"divisor":1,"key":""}},"enable_multi_currencies":""};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/wp-realestate/assets/js/main.js?ver=1628910928' id='wp-realestate-main-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/wp-private-message/assets/js/perfect-scrollbar.jquery.min.js?ver=0.6.10' id='perfect-scrollbar-jquery-js'></script>
+<script type='text/javascript' id='wp-private-message-main-js-extra'>
+/* <![CDATA[ */
+var wp_private_message_opts = {"ajaxurl":"https:\/\/seo.paybitcoin.in.th\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/wp-private-message/assets/js/main.js?ver=1628910928' id='wp-private-message-main-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/seo.paybitcoin.in.th","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script data-minify="1" type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/wp-realestate/assets/js/jquery.highlight.js?ver=1628910928' id='jquery-highlight-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/wp-realestate/assets/js/leaflet/leaflet.js?ver=1628910928' id='leaflet-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/wp-realestate/assets/js/leaflet/Control.Geocoder.js?ver=1628910928' id='control-geocoder-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/wp-realestate/assets/js/leaflet/leaflet.markercluster.js?ver=1628910928' id='leaflet-markercluster-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/plugins/wp-realestate/assets/js/leaflet/LeafletHtmlIcon.js?ver=1628910928' id='leaflet-HtmlIcon-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/imagesloaded.min.js?ver=4.1.4' id='imagesloaded-js'></script>
+<script type='text/javascript' id='homeo-property-js-extra'>
+/* <![CDATA[ */
+var homeo_property_opts = {"ajaxurl":"https:\/\/seo.paybitcoin.in.th\/wp-admin\/admin-ajax.php","dec_point":".","thousands_separator":"","currency":"$","monthly_text":"Monthly Payment: ","compare_added_tooltip_title":"Remove Compare","compare_add_tooltip_title":"Add Compare","favorite_added_tooltip_title":"Remove Favorite","favorite_add_tooltip_title":"Add Favorite","template":"<a href=\"{{url}}\" class=\"media autocompleate-media\">\r\n\t\t\t<div class=\"media-left media-middle\">\r\n\t\t\t\t<img src=\"{{image}}\" class=\"media-object\" height=\"70\" width=\"70\">\r\n\t\t\t<\/div>\r\n\t\t\t<div class=\"media-body media-middle\">\r\n\t\t\t\t<h4>{{title}}<\/h4>\r\n\t\t\t\t{{{price}}}\r\n\t\t\t\t{{{location}}}\r\n\t\t\t\t<\/div><\/a>","empty_msg":"Unable to find any listing that match the currenty query"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/themes/homeo/js/property.js?ver=1628910928' id='homeo-property-js'></script>
+<script type='text/javascript' id='homeo-property-map-js-extra'>
+/* <![CDATA[ */
+var homeo_property_map_opts = {"map_service":"","mapbox_token":"","mapbox_style":"","custom_style":"","googlemap_type":"roadmap","default_latitude":"43.6568","default_longitude":"-79.4512","default_pin":""};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/cache/min/1/wp-content/themes/homeo/js/property-map.js?ver=1628910928' id='homeo-property-map-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-includes/js/wp-embed.min.js?ver=5.8' id='wp-embed-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1' id='smartmenus-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.3.4' id='elementor-pro-webpack-runtime-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.3.1' id='elementor-webpack-runtime-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.3.1' id='elementor-frontend-modules-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='elementor-pro-frontend-js-before'>
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/seo.paybitcoin.in.th\/wp-admin\/admin-ajax.php","nonce":"d4cdeaf0f2","urls":{"assets":"https:\/\/seo.paybitcoin.in.th\/wp-content\/plugins\/elementor-pro\/assets\/"},"i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/seo.paybitcoin.in.th\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.3.4' id='elementor-pro-frontend-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' id='elementor-waypoints-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6' id='swiper-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.3.1' id='share-link-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1' id='elementor-dialog-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='elementor-frontend-js-before'>
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"direction":"max","is_enabled":true,"default_value":767},"mobile_extra":{"label":"Mobile Extra","value":880,"direction":"max","is_enabled":false,"default_value":880},"tablet":{"label":"Tablet","value":1024,"direction":"max","is_enabled":true,"default_value":1024},"tablet_extra":{"label":"Tablet Extra","value":1365,"direction":"max","is_enabled":false,"default_value":1365},"laptop":{"label":"Laptop","value":1620,"direction":"max","is_enabled":false,"default_value":1620},"widescreen":{"label":"Widescreen","value":2400,"direction":"min","is_enabled":false,"default_value":2400}}},"version":"3.3.1","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"a11y_improvements":true,"e_import_export":true,"landing-pages":true,"elements-color-picker":true,"admin-top-bar":true,"form-submissions":true,"video-playlist":true},"urls":{"assets":"https:\/\/seo.paybitcoin.in.th\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":3898,"title":"The%20Empire%20Dynasty%20Co.%2C%20Ltd.%20%E2%80%93%20Start%20living%20with%20Crypto%21","excerpt":"","featuredImage":"https:\/\/seo.paybitcoin.in.th\/wp-content\/uploads\/2021\/02\/empire_logo.jpg"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.3.1' id='elementor-frontend-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.3.4' id='pro-preloaded-elements-handlers-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.3.1' id='preloaded-modules-js'></script>
+<script type='text/javascript' src='https://seo.paybitcoin.in.th/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.3.4' id='e-sticky-js'></script>
+
+		<!-- Cookie Notice plugin v2.1.0 by Hu-manity.co https://hu-manity.co/ -->
+		<div id="cookie-notice" role="banner" class="cookie-notice-hidden cookie-revoke-hidden cn-position-bottom" aria-label="Cookie Notice" style="background-color: rgba(40,78,156,1);"><div class="cookie-notice-container" style="color: #fff;"><span id="cn-notice-text" class="cn-text-container">We use cookies – including third-party cookies – to collect information about how visitors use our websites. They help us give you the best possible experience, continually improve our sites and provide you with offers that are tailored to your interests. By clicking the "Accept all" button you agree to the use of these cookies. You can withdraw your consent at any time, change your preferences and get detailed information about our use of cookies by clicking "Find out more including how to reject cookies".</span><span id="cn-notice-buttons" class="cn-buttons-container"><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button bootstrap" aria-label="Ok">Ok</a></span><a href="javascript:void(0);" id="cn-close-notice" data-cookie-set="accept" class="cn-close-icon" aria-label="Ok"></a></div>
+			
+		</div>
+		<!-- / Cookie Notice plugin --><script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://seo.paybitcoin.in.th/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img loading="lazy" data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<div class="play"></div>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.dataset.query.length?'':'&'+this.dataset.query;e.setAttribute("src",t.replace("ID",this.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.replaceChild(e,this)}document.addEventListener("DOMContentLoaded",function(){var e,t,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),e.onclick=lazyLoadYoutubeIframe,a[t].appendChild(e)});</script></body>
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1628911382 -->
