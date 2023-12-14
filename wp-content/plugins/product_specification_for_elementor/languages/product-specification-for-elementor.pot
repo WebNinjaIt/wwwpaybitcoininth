@@ -1,0 +1,186 @@
+# Copyright (C) 2017 the temegum team
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Product Specification Table Widget For Elementor 1.0.0\n"
+"Report-Msgid-Bugs-To: support@themegum.com\n"
+"POT-Creation-Date: 2021-01-25 21:03+0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-06-01 09:40+0700\n"
+"Last-Translator: Atawai <support@themegum.com>\n"
+"Language-Team: LANGUAGE <support@themegum.com>\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: js\n"
+"X-Poedit-SearchPathExcluded-1: languages\n"
+"X-Poedit-SearchPathExcluded-2: css\n"
+
+#: product_specification_for_elementor.php:157
+msgid "Product Specification Table Widget For Elementor deactivated. The plugin need Elementor plugin, please install the plugin first."
+msgstr ""
+
+#: widgets/spesification_table.php:79
+msgid "Specification Table"
+msgstr ""
+
+#: widgets/spesification_table.php:122 widgets/spesification_table.php:196
+msgid "Specification"
+msgstr ""
+
+#: widgets/spesification_table.php:124
+msgid "Lorem ipsum dolor sit amet"
+msgstr ""
+
+#: widgets/spesification_table.php:133
+msgid "1st Value"
+msgstr ""
+
+#: widgets/spesification_table.php:142
+msgid "2nd Value"
+msgstr ""
+
+#: widgets/spesification_table.php:152
+msgid "Product Specification"
+msgstr ""
+
+#: widgets/spesification_table.php:161
+msgid "Specification Item"
+msgstr ""
+
+#: widgets/spesification_table.php:166
+msgid "Specification #1"
+msgstr ""
+
+#: widgets/spesification_table.php:167 widgets/spesification_table.php:171 widgets/spesification_table.php:175
+#: widgets/spesification_table.php:179
+msgid "Lorem ipsum"
+msgstr ""
+
+#: widgets/spesification_table.php:170
+msgid "Specification #2"
+msgstr ""
+
+#: widgets/spesification_table.php:174
+msgid "Specification #3"
+msgstr ""
+
+#: widgets/spesification_table.php:178
+msgid "Specification #4"
+msgstr ""
+
+#: widgets/spesification_table.php:214
+msgid "Width"
+msgstr ""
+
+#: widgets/spesification_table.php:237 widgets/spesification_table.php:388
+msgid "Padding"
+msgstr ""
+
+#: widgets/spesification_table.php:259 widgets/spesification_table.php:410 widgets/toggle_measurement.php:288
+msgid "Normal"
+msgstr ""
+
+#: widgets/spesification_table.php:267 widgets/spesification_table.php:314 widgets/spesification_table.php:418
+#: widgets/spesification_table.php:464 widgets/toggle_measurement.php:295 widgets/toggle_measurement.php:327
+msgid "Color"
+msgstr ""
+
+#: widgets/spesification_table.php:280 widgets/spesification_table.php:341 widgets/spesification_table.php:430
+#: widgets/spesification_table.php:490
+msgid "Odd Row Background"
+msgstr ""
+
+#: widgets/spesification_table.php:293 widgets/spesification_table.php:354 widgets/spesification_table.php:443
+#: widgets/spesification_table.php:502
+msgid "Even Row Background"
+msgstr ""
+
+#: widgets/spesification_table.php:306 widgets/spesification_table.php:456
+msgid "Hover"
+msgstr ""
+
+#: widgets/spesification_table.php:326 widgets/spesification_table.php:476
+msgid "Border Color"
+msgstr ""
+
+#: widgets/spesification_table.php:372
+msgid "Value"
+msgstr ""
+
+#: widgets/toggle_measurement.php:76
+msgid "Toggle Measurement"
+msgstr ""
+
+#: widgets/toggle_measurement.php:116 widgets/toggle_measurement.php:194
+msgid "Toggle Label"
+msgstr ""
+
+#: widgets/toggle_measurement.php:123 widgets/toggle_measurement.php:129
+msgid "1st Label"
+msgstr ""
+
+#: widgets/toggle_measurement.php:136 widgets/toggle_measurement.php:142
+msgid "2nd Label"
+msgstr ""
+
+#: widgets/toggle_measurement.php:150
+msgid "Position"
+msgstr ""
+
+#: widgets/toggle_measurement.php:154
+msgid "Left"
+msgstr ""
+
+#: widgets/toggle_measurement.php:158
+msgid "Center"
+msgstr ""
+
+#: widgets/toggle_measurement.php:162
+msgid "Right"
+msgstr ""
+
+#: widgets/toggle_measurement.php:177
+msgid "Section CSS ID (optional)"
+msgstr ""
+
+#: widgets/toggle_measurement.php:180
+msgid "CSS ID from section NOT this widget ID. You can founded on target section settings: Advanced > CSS ID"
+msgstr ""
+
+#: widgets/toggle_measurement.php:181
+msgid ""
+"Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-z 0-9 & underscore chars "
+"without spaces."
+msgstr ""
+
+#: widgets/toggle_measurement.php:212
+msgid "Vertical Padding"
+msgstr ""
+
+#: widgets/toggle_measurement.php:232
+msgid "1st Label Padding"
+msgstr ""
+
+#: widgets/toggle_measurement.php:253
+msgid "2nd Label Padding"
+msgstr ""
+
+#: widgets/toggle_measurement.php:273
+msgid "Border Radius"
+msgstr ""
+
+#: widgets/toggle_measurement.php:307 widgets/toggle_measurement.php:339
+msgid "Background"
+msgstr ""
+
+#: widgets/toggle_measurement.php:320
+msgid "Active Label"
+msgstr ""

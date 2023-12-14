@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Template Documentation Template</title>
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+    <style type="text/css" media="screen">
+        p, table, hr, .box { margin-bottom:25px; }
+        .box p { margin-bottom:10px; }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+
+        <h3 class="center alt">&ldquo;Everest Gallery&rdquo; Documentation by &ldquo;Access Keys&rdquo; v1.0.0</h3>
+
+        <hr>
+
+        <h1 class="center">&ldquo;Everest Gallery&rdquo;</h1>
+
+        <div class="borderTop">
+            <div class="span-6 colborder info prepend-1">
+                <p class="prepend-top">
+                    <strong>
+                        Created: 30th May 2017<br>
+                        By: Access Keys<br>
+                        Email: <a href="mailto:support@accesspressthemes.com">support@accesspressthemes.com</a>
+                    </strong>
+                </p>
+            </div><!-- end div .span-6 -->		
+
+            <div class="span-12 last">
+                <p class="prepend-top append-0">Thank you for purchasing our plugin. If you have any questions that are beyond the scope of this help file, please feel free to email via our user page contact form <a href="https://codecanyon.net/user/accesskeys#contact">here</a>. Thanks so much!</p>
+            </div>
+        </div><!-- end div .borderTop -->
+
+        <hr>
+
+        <h2 id="toc" class="alt">Table of Contents</h2>
+        <ol class="alpha">
+            <li><a href="#new-gallery">Create new gallery</a></li>
+            <li><a href="#gallery-details">Gallery Details</a></li>
+            <li><a href="#general">General Settings</a></li>
+            <li><a href="#filter-options">Filter Options</a></li>
+            <li><a href="#gallery-items">Gallery Items</a></li>
+
+            <li><a href="#layout">Layout</a></li>
+            <li><a href="#hover-animations">Hover Animations</a></li>
+            <li><a href="#pagination">Pagination</a></li>
+            <li><a href="#lightbox">Lightbox</a></li>
+            <li><a href="#custom">Custom</a></li>
+            <li><a href="#shortcode">Shortcode</a></li>
+        </ol>
+
+        <hr>
+
+        <div class="eg-content-section">
+            <h3 id="new-gallery">Create new gallery</h3>
+            <p>Please go to all galleries and click on create a new gallery. While creating you will need to enter few parameters such as gallery title, gallery alias and gallery item type. While entering gallery alias, please enter the unique alias which has been entered in any other galleries because shortode will be generated as per this alias. </p>
+            <p>Currently, there are 6 gallery item types. They are: </p>
+            <ul>
+                <li>
+                    <strong>Image Gallery</strong> -This gallery supports only image as the gallery item.
+                </li>
+
+                <li><strong>Video Gallery</strong> - This gallery supports only video gallery items. Video can be self hosted, Youtube URL or Vimeo URL.</li>
+                <li><strong>Audio Gallery</strong> - This gallery supports only audi gallery items. Audio can be self hosted or Soundcloud URL.</li>
+                <li><strong>Posts Gallery</strong> - This also supports image gallery items but the images can be fetched from the posts's featured image.</li>
+                <li><strong>Instagram Gallery</strong> - This also supports image gallery items but the images will be fetched from configured instagram account. For this you will need to add the instagram access token in the settings section.</li>
+                <li><strong>Mixed Gallery</strong> - This gallery supports all the combination of gallery items such as image, audio and video.</li>
+            </ul>
+        </div>
+        <div class="eg-content-section">
+            <h2 id="gallery-details">Gallery Details</h2>
+
+            <h3 id="general">General</h3>
+            <p>Here, you can change all the general parameters for the gallery such as title, alias, CSS ID etc</p>
+            <img src="assets/images/general.JPG"/>
+            <hr>
+            <h3 id="filter-options">Filter Options</h3>
+            <p>In this section, you can add filters for filtering the gallery. Please note that filter option is only available for grid and masonary layouts.</p>
+            <img src="assets/images/filter-options.JPG"/>
+            <hr>
+            <h3 id="gallery-items">Gallery Items</h3>
+            <p>Here you can the gallery items as per the gallery item type selected while adding the gallery.</p>
+            <img src="assets/images/gallery-items.JPG"/>
+            <hr>
+            <h3 id="layout">Layout</h3>
+            <p>Here you can configure necessary layout related settings such as Image Source Type, Layout Type. Currently, there are 6 layouts available - Grid, Masonary, Slideshow, Filmstrip, Blob, Caraousel </p>
+            <p>All layouts have their individual configurations.</p>
+            <img src="assets/images/layout.JPG"/>
+            <hr>
+            <h3 id="hover-animations">Hover Animations</h3>
+            <p>Here, you can choose hover animations as per your requirement. Currently, there are two type of hovers. One is overlay and other is image filters.</p>
+            <img src="assets/images/hover-animations.JPG"/>
+            <hr>
+            <h3 id="pagination">Pagination</h3>
+            <p>Here, you can choose pagination configuration. In this section, you can choose either load more or page number as pagination type.</p>
+            <img src="assets/images/pagination.JPG"/>
+            <hr>
+            <h3 id="lightbox">Lightbox</h3>
+            <p>There are currently 4 types of lightboxes available. They are :</p>
+            
+            <ul>
+                <li><strong>Pretty Photo</strong> - Useful for image gallery which has the option to share the gallery in facebook and twitter</li>
+                <li><strong>Colorbox</strong> - Useful for image gallery</li>
+                <li><strong>Magnific Popup</strong> - Useful for image gallery</li>
+                <li><strong>Everest Gallery</strong> - This is our inbuilt lightbox which is useful for all gallery item types. But we recommend this use in video and audio gallery and for image, please use any one of the above for better user experience.</li>
+            </ul>
+            <img src="assets/images/lightbox.JPG"/>
+            <hr>
+            <h3 id="custom">Custom</h3>
+            <p>Here you can add the custom css code which will be appended with each gallery individually. This will be useful if you want to customize the specific gallery.</p>
+            <img src="assets/images/custom.JPG"/>
+            <hr>
+        </div>
+        <div class="eg-content-section">
+            <h3 id="shortcode">Shortcode</h3>
+            <p>Once you create and save gallery, you can paste the generated shortcode in any of the post or page content editor to generate that specific gallery on that section.</p>
+            
+        </div>
+        <hr>
+
+        <p>Once again, thank you so much for purchasing this plugin. As we said at the beginning, We'd be glad to help you if you have any questions relating to this plugin. No guarantees, but We'll do my best to assist. If you have a more general question relating to the plugins on Codecanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+
+        <p class="append-bottom alt large"><strong>Access Keys</strong></p>
+        <p><a href="#toc">Go To Table of Contents</a></p>
+
+        <hr class="space">
+    </div><!-- end div .container -->
+</body>
+</html>

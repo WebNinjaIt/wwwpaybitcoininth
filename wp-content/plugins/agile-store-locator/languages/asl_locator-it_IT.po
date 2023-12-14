@@ -1,0 +1,712 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Agile Store Locator\n"
+"POT-Creation-Date: 2021-03-04 14:14+0000\n"
+"PO-Revision-Date: 2021-03-04 14:15+0000\n"
+"Last-Translator: admin <this.zubair@gmail.com>\n"
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: agile-store-locator.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Loco-Version: 2.2.0; wp-5.5.3"
+
+#: includes/class-agile-store-locator-helper.php:354
+#: public/class-agile-store-locator-public.php:1286
+#: public/class-agile-store-locator-public.php:1665
+msgid "Sun"
+msgstr "sole"
+
+#: includes/class-agile-store-locator-helper.php:354
+#: public/class-agile-store-locator-public.php:1286
+#: public/class-agile-store-locator-public.php:1665
+msgid "Mon"
+msgstr "mon"
+
+#: includes/class-agile-store-locator-helper.php:354
+#: public/class-agile-store-locator-public.php:1286
+#: public/class-agile-store-locator-public.php:1665
+msgid "Tues"
+msgstr "mar"
+
+#: includes/class-agile-store-locator-helper.php:354
+#: public/class-agile-store-locator-public.php:1286
+#: public/class-agile-store-locator-public.php:1665
+msgid "Wed"
+msgstr "mer"
+
+#: includes/class-agile-store-locator-helper.php:354
+#: public/class-agile-store-locator-public.php:1286
+#: public/class-agile-store-locator-public.php:1665
+msgid "Thur"
+msgstr "gio"
+
+#: includes/class-agile-store-locator-helper.php:354
+#: public/class-agile-store-locator-public.php:1286
+#: public/class-agile-store-locator-public.php:1665
+msgid "Fri"
+msgstr "ven"
+
+#: includes/class-agile-store-locator-helper.php:354
+#: public/class-agile-store-locator-public.php:1286
+#: public/class-agile-store-locator-public.php:1665
+msgid "Sat"
+msgstr "sab"
+
+#: public/class-agile-store-locator-public.php:389
+msgid "Error! Invalid register request."
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:399
+msgid "Error! Invalid parameters provided."
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:438
+msgid "Error! Please fill up the stores parameters."
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:465
+msgid "Success! Store is registered successfully."
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:469
+msgid "Error! Invalid Store data provided."
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:534
+#: public/class-agile-store-locator-public.php:685
+#: public/class-agile-store-locator-public.php:1238
+#: public/partials/asl-store-page.php:75
+msgid "Website"
+msgstr "Sito web"
+
+#: public/class-agile-store-locator-public.php:535
+#: public/class-agile-store-locator-public.php:1239
+msgid "Select Option"
+msgstr "Selezionare l'opzione"
+
+#: public/class-agile-store-locator-public.php:536
+#: public/class-agile-store-locator-public.php:1240
+#: public/partials/template-frontend-list.php:10
+#: public/partials/asl-search.php:49 public/partials/template-frontend-3.php:25
+#: public/partials/template-frontend-4.php:31
+msgid "Search"
+msgstr "Ricerca"
+
+#: public/class-agile-store-locator-public.php:537
+#: public/class-agile-store-locator-public.php:1241
+msgid "All selected"
+msgstr "Tutto selezionato"
+
+#: public/class-agile-store-locator-public.php:538
+#: public/class-agile-store-locator-public.php:1242
+#: public/class-agile-store-locator-public.php:1259
+msgid "None"
+msgstr "Nessuna"
+
+#: public/class-agile-store-locator-public.php:539
+#: public/class-agile-store-locator-public.php:1243
+msgid "None Selected"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:540
+#: public/class-agile-store-locator-public.php:1246
+msgid "selected"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:541
+#: public/class-agile-store-locator-public.php:1247
+#: public/partials/template-frontend-2.php:152
+#: public/partials/template-frontend-list.php:10
+#: public/partials/asl-search.php:24 public/partials/template-frontend-1.php:53
+#: public/partials/template-frontend-1.php:186
+#: public/partials/template-frontend-deal.php:45
+#: public/partials/template-frontend-deal.php:179
+#: public/partials/template-frontend-3.php:25
+#: public/partials/template-frontend-4.php:31
+#: public/partials/template-frontend-0.php:53
+#: public/partials/template-frontend-0.php:187
+msgid "Current Location"
+msgstr "Posizione attuale"
+
+#: public/class-agile-store-locator-public.php:542
+#: public/class-agile-store-locator-public.php:1271
+msgid "Select a category"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:543
+msgid "Select Brand"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:544
+msgid "Select Region"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:545
+msgid "Your Geo Location"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:546
+msgid "Select Category"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:686
+msgid "Please fill up the form."
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1236
+#: public/class-agile-store-locator-public.php:1254
+#: public/partials/template-frontend-2.php:138
+#: public/partials/template-frontend-2.php:267
+#: public/partials/template-frontend-1.php:209
+#: public/partials/template-frontend-1.php:256
+#: public/partials/template-frontend-deal.php:207
+#: public/partials/template-frontend-3.php:213
+#: public/partials/template-frontend-4.php:65
+#: public/partials/template-frontend-0.php:215
+#: public/partials/template-frontend-0.php:263
+msgid "Directions"
+msgstr "Indicazioni"
+
+#: public/class-agile-store-locator-public.php:1237
+msgid "Zoom"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1244
+msgid "Reset Map"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1245
+msgid "Scan Area"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1248
+msgid "Your Current Location"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1250
+msgid "Miles"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1251
+msgid "Km"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1252
+#: public/partials/asl-store-form.php:45
+msgid "Phone"
+msgstr "Telefono"
+
+#: public/class-agile-store-locator-public.php:1253
+#: public/partials/template-frontend-deal.php:244
+#: public/partials/asl-store-form.php:52
+#: public/partials/template-frontend-0.php:244
+msgid "Fax"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1255
+#: public/class-agile-store-locator-public.php:1267
+#: public/partials/template-frontend-2.php:293
+#: public/partials/template-frontend-list.php:68
+#: public/partials/template-frontend-1.php:304
+#: public/partials/template-frontend-deal.php:290
+#: public/partials/template-frontend-3.php:260
+#: public/partials/template-frontend-4.php:215
+#: public/partials/template-frontend-0.php:301
+msgid "Distance"
+msgstr "Distanza"
+
+#: public/class-agile-store-locator-public.php:1256
+#: public/partials/template-frontend-1.php:267
+msgid "Read more"
+msgstr "Leggi di più"
+
+#: public/class-agile-store-locator-public.php:1257
+#: public/partials/template-frontend-1.php:268
+msgid "Hide Details"
+msgstr "Nascondere dettagli"
+
+#: public/class-agile-store-locator-public.php:1258
+msgid "Select Distance"
+msgstr "Seleziona Distanza"
+
+#: public/class-agile-store-locator-public.php:1260
+msgid "Current+Location"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1261
+msgid "Radius Circle"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1264
+msgid "Back to stores"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1265
+msgid "All Categories"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1266
+#: public/partials/template-frontend-2.php:107
+msgid "Categories"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1268
+#: public/partials/template-frontend-2.php:79
+#: public/partials/template-frontend-1.php:87
+#: public/partials/template-frontend-deal.php:79
+#: public/partials/template-frontend-0.php:87
+msgid "Distance Range"
+msgstr "Distanza Gamma"
+
+#: public/class-agile-store-locator-public.php:1269
+msgid "User denied geo-location, check preferences."
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1270
+msgid "Error!"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1272
+msgid "brand"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1273
+msgid "product"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1274
+msgid "Region"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1275
+msgid "Category"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1276
+msgid "Within"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1752
+msgid "Store Locator Updates! New Store Registered"
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1756
+msgid "New store is registered with these details."
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1757
+msgid "Title: "
+msgstr ""
+
+#: public/class-agile-store-locator-public.php:1758
+msgid "Address: "
+msgstr ""
+
+#: public/partials/template-frontend-2.php:53
+#: public/partials/template-frontend-1.php:42
+#: public/partials/template-frontend-deal.php:3
+#: public/partials/template-frontend-3.php:65
+#: public/partials/template-frontend-0.php:42
+msgid "OPEN"
+msgstr "APERTO"
+
+#: public/partials/template-frontend-2.php:54
+#: public/partials/template-frontend-1.php:43
+#: public/partials/template-frontend-3.php:66
+#: public/partials/template-frontend-0.php:43
+msgid "ALL"
+msgstr ""
+
+#: public/partials/template-frontend-2.php:66
+#: public/partials/template-frontend-1.php:94
+#: public/partials/template-frontend-deal.php:86
+#: public/partials/template-frontend-0.php:94
+msgid "Status"
+msgstr "Stato"
+
+#: public/partials/template-frontend-2.php:81
+#: public/partials/template-frontend-1.php:89
+#: public/partials/template-frontend-deal.php:81
+#: public/partials/template-frontend-0.php:89
+msgid "Radius"
+msgstr "Raggio"
+
+#: public/partials/template-frontend-2.php:81
+#: public/partials/template-frontend-2.php:176
+#: public/partials/template-frontend-1.php:89
+#: public/partials/template-frontend-1.php:135
+#: public/partials/template-frontend-deal.php:81
+#: public/partials/template-frontend-deal.php:127
+#: public/partials/template-frontend-3.php:112
+#: public/partials/template-frontend-4.php:93
+#: public/partials/template-frontend-0.php:89
+#: public/partials/template-frontend-0.php:135
+msgid "KM"
+msgstr ""
+
+#: public/partials/template-frontend-2.php:125
+#: public/partials/template-frontend-list.php:25
+#: public/partials/template-frontend-1.php:196
+#: public/partials/template-frontend-deal.php:194
+#: public/partials/template-frontend-3.php:45
+#: public/partials/template-frontend-0.php:202
+msgid "Loading..."
+msgstr "Aspettare..."
+
+#: public/partials/template-frontend-2.php:151
+msgid "Find A Store"
+msgstr "Trova un negozio"
+
+#: public/partials/template-frontend-2.php:152
+#: public/partials/template-frontend-1.php:50
+#: public/partials/template-frontend-1.php:53
+#: public/partials/template-frontend-1.php:186
+#: public/partials/template-frontend-deal.php:42
+#: public/partials/template-frontend-deal.php:45
+#: public/partials/template-frontend-deal.php:176
+#: public/partials/template-frontend-deal.php:179
+#: public/partials/template-frontend-0.php:50
+#: public/partials/template-frontend-0.php:53
+#: public/partials/template-frontend-0.php:184
+#: public/partials/template-frontend-0.php:187
+msgid "Search Location"
+msgstr "Search Ubicazione"
+
+#: public/partials/template-frontend-2.php:163
+#: public/partials/template-frontend-1.php:122
+#: public/partials/template-frontend-deal.php:114
+#: public/partials/template-frontend-3.php:99
+#: public/partials/template-frontend-4.php:80
+#: public/partials/template-frontend-0.php:122
+msgid "Get Your Directions"
+msgstr "Get Your arrivarci"
+
+#: public/partials/template-frontend-2.php:166
+#: public/partials/template-frontend-1.php:125
+#: public/partials/template-frontend-deal.php:117
+#: public/partials/template-frontend-3.php:102
+#: public/partials/template-frontend-4.php:83
+#: public/partials/template-frontend-0.php:125
+msgid "From"
+msgstr "A partire dal"
+
+#: public/partials/template-frontend-2.php:167
+#: public/partials/asl-search.php:22 public/partials/template-frontend-1.php:52
+#: public/partials/template-frontend-1.php:126
+#: public/partials/template-frontend-deal.php:44
+#: public/partials/template-frontend-deal.php:118
+#: public/partials/template-frontend-deal.php:178
+#: public/partials/template-frontend-3.php:103
+#: public/partials/template-frontend-4.php:84
+#: public/partials/template-frontend-0.php:52
+#: public/partials/template-frontend-0.php:126
+#: public/partials/template-frontend-0.php:186
+msgid "Enter a Location"
+msgstr "Inserisci una località"
+
+#: public/partials/template-frontend-2.php:170
+#: public/partials/template-frontend-1.php:129
+#: public/partials/template-frontend-deal.php:121
+#: public/partials/template-frontend-3.php:106
+#: public/partials/template-frontend-4.php:87
+#: public/partials/template-frontend-0.php:129
+msgid "To"
+msgstr "A"
+
+#: public/partials/template-frontend-2.php:171
+#: public/partials/template-frontend-1.php:130
+#: public/partials/template-frontend-deal.php:122
+#: public/partials/template-frontend-3.php:107
+#: public/partials/template-frontend-0.php:130
+msgid "Prepopulated Destination Address"
+msgstr ""
+
+#: public/partials/template-frontend-2.php:174
+#: public/partials/template-frontend-1.php:133
+#: public/partials/template-frontend-deal.php:125
+#: public/partials/template-frontend-3.php:110
+#: public/partials/template-frontend-0.php:133
+msgid "Show Distance In"
+msgstr "Mostra la distanza in"
+
+#: public/partials/template-frontend-2.php:179
+#: public/partials/template-frontend-1.php:138
+#: public/partials/template-frontend-deal.php:130
+#: public/partials/template-frontend-3.php:115
+#: public/partials/template-frontend-4.php:96
+#: public/partials/template-frontend-0.php:138
+msgid "Mile"
+msgstr ""
+
+#: public/partials/template-frontend-2.php:183
+#: public/partials/template-frontend-1.php:142
+#: public/partials/template-frontend-deal.php:134
+#: public/partials/template-frontend-3.php:119
+#: public/partials/template-frontend-4.php:100
+#: public/partials/template-frontend-0.php:142
+msgid "GET DIRECTIONS"
+msgstr "OTTENERE DIREZIONI"
+
+#: public/partials/template-frontend-2.php:198
+#: public/partials/template-frontend-1.php:155
+#: public/partials/template-frontend-deal.php:147
+#: public/partials/template-frontend-3.php:132
+#: public/partials/template-frontend-4.php:113
+#: public/partials/template-frontend-0.php:155
+msgid "LOCATE YOUR GEOPOSITION"
+msgstr "Individuare il geoposition"
+
+#: public/partials/template-frontend-2.php:203
+#: public/partials/template-frontend-1.php:160
+#: public/partials/template-frontend-deal.php:152
+#: public/partials/template-frontend-3.php:137
+#: public/partials/template-frontend-4.php:118
+#: public/partials/template-frontend-0.php:160
+msgid "Your Address"
+msgstr "Il tuo indirizzo"
+
+#: public/partials/template-frontend-2.php:206
+#: public/partials/template-frontend-1.php:163
+#: public/partials/template-frontend-deal.php:155
+#: public/partials/template-frontend-3.php:140
+#: public/partials/template-frontend-4.php:121
+#: public/partials/template-frontend-0.php:163
+msgid "LOCATE"
+msgstr "Individuare"
+
+#: public/partials/template-frontend-2.php:212
+#: public/partials/template-frontend-1.php:169
+#: public/partials/template-frontend-deal.php:161
+#: public/partials/template-frontend-3.php:146
+#: public/partials/template-frontend-4.php:127
+#: public/partials/template-frontend-0.php:169
+msgid "Use my location to find the closest Service Provider near me"
+msgstr ""
+"Usa la mia posizione per trovare il provider di servizi più vicino vicino a "
+"me"
+
+#: public/partials/template-frontend-2.php:215
+#: public/partials/template-frontend-1.php:172
+#: public/partials/template-frontend-deal.php:164
+#: public/partials/template-frontend-3.php:149
+#: public/partials/template-frontend-4.php:130
+#: public/partials/template-frontend-0.php:172
+msgid "USE LOCATION"
+msgstr "UTILIZZARE LA POSIZIONE"
+
+#: public/partials/template-frontend-list.php:34
+#: public/partials/asl-search.php:16
+msgid "Search your Location"
+msgstr ""
+
+#: public/partials/template-frontend-list.php:66
+msgid "Sort by:"
+msgstr ""
+
+#: public/partials/template-frontend-list.php:69
+msgid "Title"
+msgstr ""
+
+#: public/partials/template-frontend-list.php:70
+msgid "Cities"
+msgstr ""
+
+#: public/partials/template-frontend-list.php:71
+msgid "States"
+msgstr ""
+
+#: public/partials/template-frontend-list.php:149
+msgid "Get Direction"
+msgstr ""
+
+#: public/partials/template-frontend-list.php:151
+msgid "Booking URL"
+msgstr ""
+
+#: public/partials/asl-search.php:23
+msgid "Destination missing or invalid"
+msgstr ""
+
+#: public/partials/template-frontend-1.php:61
+#: public/partials/template-frontend-1.php:62
+#: public/partials/template-frontend-deal.php:53
+#: public/partials/template-frontend-deal.php:54
+#: public/partials/template-frontend-0.php:61
+#: public/partials/template-frontend-0.php:62
+msgid "Search Name"
+msgstr ""
+
+#: public/partials/template-frontend-deal.php:4
+msgid "CLOSE"
+msgstr "CHIUDI"
+
+#: public/partials/template-frontend-3.php:52
+msgid "Enter your address"
+msgstr ""
+
+#: public/partials/template-frontend-3.php:84
+msgid "Store Direction"
+msgstr ""
+
+#: public/partials/template-frontend-4.php:49
+msgid "STORE LOCATIONS"
+msgstr ""
+
+#: public/partials/template-frontend-4.php:51
+msgid "USE CURRENT LOCATION"
+msgstr ""
+
+#: public/partials/template-frontend-4.php:52
+msgid "Enter a Postcode or Suburb"
+msgstr ""
+
+#: public/partials/template-frontend-4.php:88
+msgid "Destination Address"
+msgstr ""
+
+#: public/partials/template-frontend-4.php:91
+msgid "Distance Unit"
+msgstr ""
+
+#: public/partials/template-frontend-4.php:162
+msgid "Get Directions"
+msgstr ""
+
+#: public/partials/template-frontend-4.php:164
+msgid "Shop Online"
+msgstr ""
+
+#: public/partials/template-frontend-4.php:172
+msgid "Opening Hours"
+msgstr ""
+
+#: public/partials/asl-store-form.php:11
+msgid "Register your Store!"
+msgstr ""
+
+#: public/partials/asl-store-form.php:12
+msgid ""
+"Fill up the form of your Store to register it for the approval by the "
+"administrator and it will list down in the Store Locator listing."
+msgstr ""
+
+#: public/partials/asl-store-form.php:19
+msgid "STORE INFORMATION"
+msgstr ""
+
+#: public/partials/asl-store-form.php:24
+msgid "Company"
+msgstr ""
+
+#: public/partials/asl-store-form.php:31
+msgid "Name"
+msgstr ""
+
+#: public/partials/asl-store-form.php:38
+msgid "Website URL"
+msgstr ""
+
+#: public/partials/asl-store-form.php:59
+msgid "Email"
+msgstr ""
+
+#: public/partials/asl-store-form.php:61
+msgid "Enter correct email address"
+msgstr ""
+
+#: public/partials/asl-store-form.php:65
+msgid "ADDRESS LOCATION"
+msgstr ""
+
+#: public/partials/asl-store-form.php:69
+msgid "Street"
+msgstr ""
+
+#: public/partials/asl-store-form.php:76
+msgid "City"
+msgstr ""
+
+#: public/partials/asl-store-form.php:83
+msgid "State"
+msgstr ""
+
+#: public/partials/asl-store-form.php:90
+msgid "Postal Code"
+msgstr ""
+
+#: public/partials/asl-store-form.php:97
+msgid "Country"
+msgstr ""
+
+#: public/partials/asl-store-form.php:99
+msgid "Select Country"
+msgstr ""
+
+#: public/partials/asl-store-form.php:109
+msgid "Latitude"
+msgstr ""
+
+#: public/partials/asl-store-form.php:116
+msgid "Longitude"
+msgstr ""
+
+#: public/partials/asl-store-form.php:124
+msgid "Description"
+msgstr ""
+
+#: public/partials/asl-store-form.php:128
+msgid "Additional Description"
+msgstr ""
+
+#: public/partials/asl-store-form.php:140
+msgid ""
+"I agree to terms and conditions and all the provided information is correct"
+msgstr ""
+
+#: public/partials/asl-store-form.php:143
+msgid "Please agree to register for store in the listing."
+msgstr ""
+
+#: public/partials/asl-store-form.php:150
+msgid "Register"
+msgstr ""
+
+#: public/partials/asl-store-page.php:71
+msgid "Direction"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Agile Store Locator"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Agile Store Locator (Pro Version 4.6.19) is a Premium Store Finder Plugin "
+"designed to offer you immediate access to all the best stores in your local "
+"area. It enables you to find the very best stores and their location thanks "
+"to the power of Google Maps."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://agilestorelocator.com"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "AGILELOGIX"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://agilestorelocator.com/"
+msgstr ""

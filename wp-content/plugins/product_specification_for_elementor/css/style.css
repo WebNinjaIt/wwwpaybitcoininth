@@ -1,0 +1,19 @@
+/* specification table */
+
+.temegum-spec-table table{border-spacing: 0;border-collapse: collapse;width: 100%;margin: 0;}
+.temegum-spec-table table span.spec-content,.temegum-spec-table table td.spec-value > span:not(.spec-content){display: block;}
+.has-double .odd-value,.temegum-spec-table table td.spec-value span.spec-content{ display: none;}
+.temegum-spec-table table td{border: solid 1px #cccccc;}
+.temegum-spec-table table td,.temegum-spec-table table tr:nth-child(odd)>td,.temegum-spec-table table tr:nth-child(odd)>td{ background: none;}
+
+@media(max-width: 480px){
+	.temegum-spec-table table td.spec-desc{display: none;}
+	.temegum-spec-table table td.spec-content{width: 100%;}
+	.temegum-spec-table table td.spec-value span.spec-content{display: block;}
+}
+
+/* universal switch */
+.universal-switch {list-style: none;padding: 0; overflow: hidden; display: inline-block;}
+.universal-switch .switcher{cursor: pointer;display: inline-block;background: #f4f4f4;padding: 10px 0px;}
+.universal-switch .switcher span{padding: 0 20px;}
+.universal-switch .switcher.active{background: #007cba;color: #fff;}

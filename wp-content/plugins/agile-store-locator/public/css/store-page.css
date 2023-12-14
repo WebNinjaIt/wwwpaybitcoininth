@@ -1,0 +1,16 @@
+.asl-cont {
+  align-items: center;
+  opacity: 1 !important;
+}
+
+
+.asl-cont .sl-address .sl-store-info i {position: absolute;left: 0;top: 0;font-size: 14px;line-height: 24px;color: #999;font-weight: 600;}
+.asl-cont .sl-address .sl-store-info{position: relative;padding-left: 30px;}
+.asl-cont .sl-address .sl-store-info h6{font-size: 16px;line-height: 24px;color: #000;margin-bottom: 0px;color: #000;}
+.asl-cont .sl-address .sl-store-info a{color: #000;}
+.asl-cont .sl-address .sl-store-info p{font-size: 14px;line-height: 24px;padding: 2px 0px;margin-bottom: 0.3rem;}
+.asl-cont .sl-day {margin-bottom: 0.5rem}
+.asl-cont .sl-day > div {display: inline-block;font-size: 14px;}
+.asl-cont .sl-day .sl-day-lbl {min-width: 50px; height: 100%; vertical-align: top;font-size: 14px;}
+.asl-cont .sl-day .sl-time {display: block; width: 100%}
+.asl-cont .sl-logo {max-width: 200px; max-height: 150px; width: auto;display: block;margin: auto;}
