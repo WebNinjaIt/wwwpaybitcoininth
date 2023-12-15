@@ -5,7 +5,7 @@
 @ini_set('session.use_only_cookies', true);
 //END Really Simple SSL
 define('WP_CACHE', true);
-define( 'WPCACHEHOME', '/home/wwwpaybitcoininth/site/wp-content/plugins/wp-super-cache/' );
+define( 'WPCACHEHOME', '/home/site/wwwroot/wp-content/plugins/wp-super-cache/' );
 /**
  * The base configuration for WordPress
  *
