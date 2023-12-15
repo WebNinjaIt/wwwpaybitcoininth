@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64" xml:space="preserve">
+<g>
+	<path fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="   M51.7,41.3v11.8c0,0.6-0.4,1-1,1H11.4c-0.6,0-1-0.4-1-1V21.2h41.3V34"></path>
+	<path fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="   M52.6,41.3H42.4c-0.6,0-1-0.4-1-1V35c0-0.6,0.4-1,1-1h10.1c0.6,0,1,0.4,1,1v5.2C53.6,40.8,53.1,41.3,52.6,41.3z"></path>
+	<path fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="   M40.4,17.5h10.3c0.6,0,1,0.4,1,1v2.7H10.4v-2.7c0-0.6,0.4-1,1-1h13.5"></path>
+	
+		<polyline fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="   21.3,21.1 32.5,9.9 43.7,21.1  "></polyline>
+</g>
+</svg>
