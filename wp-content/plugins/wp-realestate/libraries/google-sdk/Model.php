@@ -246,42 +246,59 @@ class Google_Model implements ArrayAccess
     }
   }
 
-  public function offsetExists($offset)
-  {
-    return isset($this->$offset) || isset($this->modelData[$offset]);
-  }
+    /** @return bool */
+    #[\ReturnTypeWillChange]
+    public function offsetExists($offset)
+    {
+        return isset($this->$offset) || isset($this->modelData[$offset]);
+    }
 
-  public function offsetGet($offset)
-  {
-    return isset($this->$offset) ?
+    /** @return mixed */
+    #[\ReturnTypeWillChange]
+    public function offsetGet($offset)
+    {
+        return isset($this->$offset) ?
         $this->$offset :
         $this->__get($offset);
-  }
-
-  public function offsetSet($offset, $value)
-  {
-    if (property_exists($this, $offset)) {
-      $this->$offset = $value;
-    } else {
-      $this->modelData[$offset] = $value;
-      $this->processed[$offset] = true;
     }
-  }
 
-  public function offsetUnset($offset)
-  {
-    unset($this->modelData[$offset]);
-  }
+    /** @return void */
+    #[\ReturnTypeWillChange]
+    public function offsetSet($offset, $value)
+    {
+        if (property_exists($this, $offset)) {
+            $this->$offset = $value;
+        } else {
+            $this->modelData[$offset] = $value;
+            $this->processed[$offset] = true;
+        }
+    }
 
-  protected function keyType($key)
-  {
-    return $key . "Type";
-  }
+    /** @return void */
+    #[\ReturnTypeWillChange]
+    public function offsetUnset($offset)
+    {
+        unset($this->modelData[$offset]);
+    }
 
-  protected function dataType($key)
-  {
-    return $key . "DataType";
-  }
+    protected function keyType($key)
+    {
+        $keyType = $key . "Type";
+
+        // ensure keyType is a valid class
+        if (property_exists($this, $keyType) && $this->$keyType !== null && class_exists($this->$keyType)) {
+            return $this->$keyType;
+        }
+    }
+
+    protected function dataType($key)
+    {
+        $dataType = $key . "DataType";
+
+        if (property_exists($this, $dataType)) {
+            return $this->$dataType;
+        }   
+    }
 
   public function __isset($key)
   {

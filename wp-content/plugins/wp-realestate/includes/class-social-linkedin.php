@@ -17,7 +17,7 @@ class WP_RealEstate_Social_Linkedin {
 
     const _TOKEN_URL = 'https://www.linkedin.com/uas/oauth2/accessToken';
 
-    const _BASE_URL = 'https://api.linkedin.com/v1';
+    const _BASE_URL = 'https://api.linkedin.com/v2/me';
 
     // LinkedIn Application Key
     public $li_api_key;

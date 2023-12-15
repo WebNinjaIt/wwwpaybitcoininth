@@ -498,7 +498,7 @@ class WP_RealEstate_Property {
 		exit();
 	}
 
-	function get_walk_score_data() {
+	public static function get_walk_score_data() {
 		$return = array();
 		if ( !isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'wp-realestate-property-walk-score-nonce' ) ) {
 			$return = array( 'status' => false, 'msg' => esc_html__('Your nonce did not verify.', 'wp-realestate') );
