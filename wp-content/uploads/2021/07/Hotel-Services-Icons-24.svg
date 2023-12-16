@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64" xml:space="preserve">
+<g>
+	<g>
+		
+			<circle fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="13.7" cy="15.8" r="4.7"></circle>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="27.9" y1="53.6" x2="18.4" y2="15.8"></line>
+	</g>
+	<g>
+		
+			<circle fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="30.5" cy="15.8" r="4.7"></circle>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="16.4" y1="53.6" x2="25.8" y2="15.8"></line>
+	</g>
+	<g>
+		
+			<rect x="41.9" y="11.2" transform="matrix(0.8665 0.4992 -0.4992 0.8665 17.0404 -19.1903)" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="5" height="22.1"></rect>
+		<path fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="    M49.1,9.1L35.3,33l3.7,2.1l-8.2,19.3c-0.2,0.5,0.4,0.8,0.7,0.3l9.9-17.3l0.4-0.7l12.8-22.2c0.5-0.9,0.3-2.1-0.6-2.5L49.1,9.1z"></path>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="46.4" y1="13.9" x2="50.7" y2="16.4"></line>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="45" y1="16.2" x2="49.3" y2="18.8"></line>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="43.6" y1="18.6" x2="48" y2="21.1"></line>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="42.2" y1="21" x2="46.6" y2="23.5"></line>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="40.8" y1="23.4" x2="45.2" y2="25.9"></line>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="39.5" y1="25.8" x2="43.8" y2="28.3"></line>
+		
+			<line fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="38.1" y1="28.2" x2="42.4" y2="30.7"></line>
+	</g>
+</g>
+</svg>
